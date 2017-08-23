@@ -1,0 +1,21 @@
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="#" class="back link icon-only"><i class="material-icons md-36">keyboard_arrow_left</i></a></div>
+    <div class="center sliding">{{t "actions.builder_task_title" defaultValue="Pick a Task"}}</div>
+  </div>
+</div>
+<div class="pages navbar-through">
+  <div data-page="action-builder-task" class="page" id="action-builder-task">
+    <div class="page-content">
+      <div class="content-block-title centered-title"><span>{{t "label.hint" defaultValue="Hint"}}</span></div>
+      <div class="content-block centered">
+        {{t "actions.builder_task_hint" defaultValue="Tasks let you perform scheduled actions.<br>Just press skip if you dont want to run a Task."}}
+      </div>
+      <div id="action-builder-task-wrap">
+      </div>
+    </div>
+    <div class="toolbar toolbar-bottom toolbar-bottom-button">
+      <a href="views/action-builder-trigger.html?action_id={{url_query.action_id}}" class="button button-big color-blue button-fill fixed-button">{{t "label.skip" defaultValue="Skip"}}</a>
+    </div>
+  </div>
+</div>

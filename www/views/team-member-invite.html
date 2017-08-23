@@ -1,0 +1,59 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="#" class="back link icon-only"><i class="material-icons md-36">keyboard_arrow_left</i></a></div>
+    <div class="center sliding">{{t "team.invite_title" defaultValue="Invite Team Member"}}</div>
+    <div class="right"></div>
+  </div>
+</div>
+<div class="pages navbar-through toolbar-through">
+  <div class="page" id="team-member-invite" data-page="team-member-invite">
+    <div class="page-content">
+      <form id="team-invite-form">
+        <div class="content-block-title centered-title"><span>{{t "team.team_member_details" defaultValue="Team member details"}}</span></div>
+        <div class="list-block">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-input">
+                    <input type="text" placeholder="{{t "label.first_name" defaultValue="First Name"}}" name="first_name" class="first_name">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-input">
+                    <input type="text" placeholder="{{t "label.last_name" defaultValue="Last Name"}}" name="last_name" class="last_name">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-input">
+                    <input type="email" placeholder="{{t "label.your_email" defaultValue="Your Email"}}" name="email" class="email">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-input">
+                    <input type="tel" placeholder="{{t "label.mobile_number" defaultValue="Mobile Number"}}" name="mobile" class="mobile">
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="list-block inset topset">
+          <button type="submit" class="button button-big color-blue button-fill full-width">{{t "label.invite" defaultValue="Invite"}}</button>
+        </div>
+      </form>
+  	</div>
+  </div>
+</div>

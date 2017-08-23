@@ -1,0 +1,668 @@
+@import url(style_css.css);
+/* VARIABLES */
+/* MIXINS */
+/* ----------- iPhone 5, 5C and 5S ----------- */
+/* ----------- iPhone 6 ----------- */
+/* ----------- iPhone 6+ ----------- */
+/* -------------------------- */
+.splash-page {
+  background-image: url(../../images/MobileBackgroundBlurred.png);
+  background-size: cover;
+  font-size: 90%; }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    .splash-page {
+      font-size: 100%; } }
+  .splash-page .swiper-slide-active .ballons {
+    -moz-animation-name: animateBallons;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-duration: 1s;
+    -webkit-animation-name: animateBallons;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 1s;
+    animation-name: animateBallons;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s; }
+  .splash-page .ballons {
+    position: absolute;
+    height: 250px;
+    width: 100%;
+    z-index: 0;
+    bottom: 60px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .splash-page .ballons {
+        bottom: 120px; } }
+    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+      @-webkit-keyframes animateBallons {
+        0% {
+          opacity: 0;
+          bottom: 30px; }
+        100% {
+          opacity: 1;
+          bottom: 60px; } }
+      @-moz-keyframes animateBallons {
+        0% {
+          opacity: 0;
+          bottom: 30px; }
+        100% {
+          opacity: 1;
+          bottom: 60px; } }
+      @-o-keyframes animateBallons {
+        0% {
+          opacity: 0;
+          bottom: 30px; }
+        100% {
+          opacity: 1;
+          bottom: 60px; } }
+      @keyframes animateBallons {
+        0% {
+          opacity: 0;
+          bottom: 30px; }
+        100% {
+          opacity: 1;
+          bottom: 60px; } } }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      @-webkit-keyframes animateBallons {
+        0% {
+          opacity: 0;
+          bottom: 90px; }
+        100% {
+          opacity: 1;
+          bottom: 120px; } }
+      @-moz-keyframes animateBallons {
+        0% {
+          opacity: 0;
+          bottom: 90px; }
+        100% {
+          opacity: 1;
+          bottom: 120px; } }
+      @-o-keyframes animateBallons {
+        0% {
+          opacity: 0;
+          bottom: 90px; }
+        100% {
+          opacity: 1;
+          bottom: 120px; } }
+      @keyframes animateBallons {
+        0% {
+          opacity: 0;
+          bottom: 90px; }
+        100% {
+          opacity: 1;
+          bottom: 120px; } } }
+    .splash-page .ballons .ballon {
+      position: absolute;
+      height: 130px; }
+      .splash-page .ballons .ballon.big .icon {
+        width: 50px;
+        height: 50px; }
+      .splash-page .ballons .ballon.big i {
+        font-size: 40px; }
+      .splash-page .ballons .ballon.small .icon {
+        width: 30px;
+        height: 30px; }
+      .splash-page .ballons .ballon.small .line {
+        border-right-width: 2px; }
+      .splash-page .ballons .ballon.small i {
+        font-size: 20px; }
+    .splash-page .ballons .ballon1 {
+      margin-left: 0; }
+      .splash-page .ballons .ballon1 .line {
+        border-right-width: 4px;
+        height: 200px; }
+    .splash-page .ballons .ballon2 {
+      margin-top: 60px;
+      margin-left: 18%; }
+      .splash-page .ballons .ballon2 .line {
+        height: 80px; }
+    .splash-page .ballons .ballon3 {
+      margin-top: 100px;
+      margin-left: 34%; }
+      .splash-page .ballons .ballon3 .line {
+        height: 100px; }
+    .splash-page .ballons .ballon4 {
+      margin-left: 45%; }
+    .splash-page .ballons .ballon5 {
+      margin-top: 50px;
+      margin-left: 60%; }
+      .splash-page .ballons .ballon5 .line {
+        height: 85px; }
+    .splash-page .ballons .ballon6 {
+      margin-top: 20px;
+      margin-left: 74%; }
+    .splash-page .ballons .line {
+      margin-left: 46%;
+      border-right: 3px dashed #f58048;
+      margin-top: 0;
+      height: 130px;
+      display: block;
+      width: 1px; }
+    .splash-page .ballons .icon {
+      display: block;
+      width: 40px;
+      height: 40px;
+      padding: 2px;
+      background-color: #f58048;
+      text-align: center;
+      border-radius: 50px; }
+      .splash-page .ballons .icon i {
+        margin-top: 5px;
+        color: #fff;
+        font-size: 30px; }
+  .splash-page .slider-header {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    position: relative;
+    margin-bottom: 30px;
+    min-height: 43px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .splash-page .slider-header {
+        min-height: 55px; } }
+    .splash-page .slider-header:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -15px;
+      width: 0;
+      height: 0;
+      background-color: transparent !important;
+      border-top: solid 15px rgba(0, 0, 0, 0.5);
+      border-left: solid 15px transparent;
+      border-right: solid 15px transparent; }
+    .splash-page .slider-header .logo-slider-header {
+      width: auto;
+      max-height: 43px;
+      margin-right: 13px; }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .splash-page .slider-header .logo-slider-header {
+          margin-right: 15px;
+          max-height: 55px; } }
+  .splash-page .logo-slider-header {
+    width: 100%;
+    float: left; }
+  .splash-page .tommytext-slider-header {
+    max-width: 80px;
+    margin-top: 3px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .splash-page .tommytext-slider-header {
+        margin-top: 5px;
+        max-width: 80px; } }
+  .splash-page .slider-header-heading {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 75%; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .splash-page .slider-header-heading {
+        line-height: 80%;
+        font-size: 23px; } }
+  .splash-page .arrow-next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -23px; }
+    .splash-page .arrow-next i {
+      font-size: 45px;
+      color: rgba(255, 255, 255, 0.75); }
+  .splash-page .arrow-down {
+    height: 1px;
+    position: relative;
+    margin: -5px 0 15px 0; }
+    .splash-page .arrow-down:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -7px;
+      width: 0;
+      height: 0;
+      background-color: transparent !important;
+      border-top: solid 7px rgba(0, 0, 0, 0.5);
+      border-left: solid 7px transparent;
+      border-right: solid 7px transparent; }
+  .splash-page .bubble {
+    padding: 7px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #f58048;
+    border-radius: 7px;
+    margin: 10px 0;
+    margin-bottom: 15px;
+    position: relative;
+    min-height: 10px;
+    z-index: 2; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .splash-page .bubble {
+        padding: 10px;
+        margin: 10px;
+        margin-bottom: 15px; } }
+    .splash-page .bubble.round {
+      border-radius: 30px; }
+      .splash-page .bubble.round:first-child:before, .splash-page .bubble.round:first-child:after {
+        display: none; }
+    .splash-page .bubble:first-child:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -8px;
+      margin-top: -8px;
+      width: 0;
+      height: 0;
+      background-color: transparent !important;
+      border-right: solid 8px #f58048;
+      border-top: solid 8px transparent;
+      border-bottom: solid 8px transparent; }
+    .splash-page .bubble:first-child:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -7px;
+      margin-top: -8px;
+      width: 0;
+      height: 0;
+      background-color: transparent !important;
+      border-right: solid 8px #fff;
+      border-top: solid 8px transparent;
+      border-bottom: solid 8px transparent;
+      z-index: 2; }
+  .splash-page .bubble-with-icon {
+    padding: 0; }
+    .splash-page .bubble-with-icon:before, .splash-page .bubble-with-icon:after {
+      display: none !important; }
+  .splash-page .bubble-icon {
+    padding: 0 10px;
+    background-color: #f58048;
+    text-align: center;
+    max-width: 70px;
+    position: absolute;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+    .splash-page .bubble-icon i {
+      color: #fff;
+      margin-top: 4px; }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .splash-page .bubble-icon i {
+          margin-top: 7px; } }
+  .splash-page .bubble-with-icon .bubble-text {
+    padding: 7px;
+    margin-left: 45px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .splash-page .bubble-with-icon .bubble-text {
+        padding: 10px;
+        margin-left: 50px; } }
+  .splash-page .experience p {
+    margin: 10px 0 20px 0;
+    text-align: center;
+    color: #555;
+    font-size: 16px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .splash-page .experience p {
+        margin-top: 20px; } }
+  .splash-page .experience .icon {
+    position: absolute;
+    right: -10px;
+    bottom: -8px;
+    background-color: #f68c49;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    text-align: center;
+    padding: 2px; }
+    .splash-page .experience .icon.clear {
+      background-color: #bdbac0; }
+    .splash-page .experience .icon i {
+      color: #fff; }
+
+.get-started-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 20; }
+  .get-started-btn i {
+    font-size: 35px;
+    vertical-align: middle;
+    margin-top: -2px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .get-started-btn i {
+        font-size: 40px; } }
+  .get-started-btn a, .get-started-btn button {
+    padding: 15px;
+    background-color: #f68c49;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 24px;
+    display: block;
+    font-weight: 300;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .get-started-btn a, .get-started-btn button {
+        font-size: 28px;
+        padding: 22px; } }
+  .get-started-btn a:hover, .get-started-btn button:hover {
+    background-color: #f38c49; }
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 5px; }
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #007aff; }
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 100%;
+  background: #000;
+  opacity: .2; }
+
+.notific {
+  text-align: center; }
+  .notific .bubble {
+    margin-left: 13%;
+    margin-right: 13%;
+    padding: 0; }
+    .notific .bubble:before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      margin-left: -8px;
+      width: 0;
+      height: 0;
+      background-color: transparent !important;
+      border-top: 0;
+      border-right: solid 8px transparent;
+      border-left: solid 8px transparent;
+      border-bottom: solid 8px #f58048; }
+    .notific .bubble:after {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: 50%;
+      margin-left: -8px;
+      width: 0;
+      height: 0;
+      background-color: transparent !important;
+      border-top: 0;
+      border-right: solid 8px transparent;
+      border-left: solid 8px transparent;
+      border-bottom: solid 8px #fff;
+      z-index: 2; }
+    .notific .bubble .bubble-text {
+      padding: 15px;
+      padding-bottom: 5px; }
+    .notific .bubble strong {
+      display: block;
+      margin: 0 15px; }
+    .notific .bubble a {
+      display: block;
+      padding: 10px;
+      background-color: rgba(177, 243, 253, 0.5);
+      font-size: 16px;
+      text-decoration: underline;
+      color: #444;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      font-weight: bold; }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .notific .bubble a {
+          font-size: 18px; } }
+  .notific .link-bottom {
+    position: absolute;
+    bottom: 25px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 100;
+    width: 100%; }
+    .notific .link-bottom a {
+      color: rgba(255, 255, 255, 0.8); }
+  .notific .logo-vertical {
+    max-width: 100px;
+    margin: 60px auto 25px auto;
+    text-align: center; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .notific .logo-vertical {
+        margin-top: 90px; } }
+  .notific .tommytext-slider-header {
+    width: 100% !important;
+    margin-top: 10px; }
+
+/* Onboarding - Login pages */
+.login-page .page-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(50%, rgba(0, 0, 0, 0.5)), color-stop(100%, rgba(0, 0, 0, 0.75)));
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%);
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%);
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 ); }
+
+.login-page .logo-center-block {
+  padding: 12px; }
+  .login-page .logo-center-block .login-logo {
+    width: 50px;
+    float: left;
+    margin-right: 10px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page .logo-center-block .login-logo {
+        width: 60px; } }
+  .login-page .logo-center-block .login-logo-text {
+    margin-top: 10px;
+    width: 90px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page .logo-center-block .login-logo-text {
+        width: 120px; } }
+
+.login-page .login-links {
+  text-align: center; }
+  .login-page .login-links li {
+    margin-bottom: 5px; }
+  .login-page .login-links a {
+    color: white;
+    text-decoration: underline; }
+
+.login-page .rad-input input {
+  background: none repeat scroll 0 0 #fff !important;
+  border-radius: 20px !important;
+  text-align: center !important; }
+
+.login-page form {
+  text-align: center;
+  margin: 0 20px; }
+
+/* Login Screen */
+form .country-code {
+  margin-top: 20px;
+  font-size: 16px; }
+  form .country-code div {
+    color: #fff; }
+
+.reg-form .input-group {
+  padding: 1px 5px;
+  background-color: #fff;
+  border: 1px solid #f68c49;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  position: relative; }
+  .reg-form .input-group .icon {
+    position: absolute;
+    top: 2px; }
+  .reg-form .input-group i {
+    font-size: 30px;
+    color: #f68c49;
+    margin: 0 0 0 5px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .reg-form .input-group i {
+        font-size: 32px;
+        margin-top: 2px; } }
+    .reg-form .input-group i.password {
+      font-size: 30px; }
+
+.reg-form .country-code {
+  margin-top: 20px;
+  font-size: 16px; }
+  .reg-form .country-code div {
+    color: #fff; }
+  .reg-form .country-code a {
+    color: rgba(255, 255, 255, 0.85); }
+
+.reg-form .input-group input {
+  font-size: 22px;
+  color: #555;
+  padding: 5px;
+  display: block;
+  border: 0;
+  margin-left: 40px;
+  width: 80%; }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    .reg-form .input-group input {
+      padding: 8px; } }
+
+.login-page {
+  background-image: url(../../images/MobileBackgroundBlurred.png);
+  background-size: cover;
+  background-position: 50% 100%; }
+  .login-page .text {
+    color: #fff;
+    opacity: 0.87;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    display: block; }
+  .login-page .init-regis {
+    margin: 25px 0; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page .init-regis {
+        margin-top: 40px; } }
+  .login-page form#reset-password-form .inputs {
+    margin: 20px 0; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page form#reset-password-form .inputs {
+        margin: 40px 0; } }
+  .login-page form.reg-form {
+    margin-top: 20px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page form.reg-form {
+        margin-top: 30px; } }
+    .login-page form.reg-form .inputs {
+      margin: 20px 0; }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .login-page form.reg-form .inputs {
+          margin: 40px 0; } }
+      .login-page form.reg-form .inputs input {
+        padding: 12px 15px;
+        background-color: #fff;
+        border: 1px solid #f68c49;
+        opacity: 1; }
+  .login-page .upload-photo-cont {
+    padding-top: 45px; }
+  .login-page .inputs {
+    margin: 60px 0;
+    position: relative; }
+  .login-page .inputs-reg {
+    margin: 80px 0 40px 0;
+    position: relative; }
+  .login-page .inputs .inputIconE {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    font-size: 20px;
+    color: #ccc; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page .inputs .inputIconE {
+        top: 5px; } }
+  .login-page .inputs .icons i.enable {
+    color: #f68c49; }
+  .login-page .inputs .inputIconE:last-child {
+    position: absolute;
+    top: 26px;
+    border-top: 1px solid #ccc;
+    padding-top: 3px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page .inputs .inputIconE:last-child {
+        top: 28px; } }
+  .login-page .inputs input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 12px 15px !important;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 22px;
+    opacity: 0.75;
+    border: 1px solid #fff; }
+    .login-page .inputs input.input-email-phone {
+      padding-right: 35px !important; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page .inputs input {
+        padding: 14px 15px !important; } }
+    .login-page .inputs input:focus {
+      border: 1px solid #f68c49;
+      opacity: 1;
+      color: #333; }
+  .login-page .inputs .active {
+    border: 1px solid #f68c49;
+    opacity: 1;
+    color: #333; }
+  .login-page input:-webkit-autofill {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 0px 1000px white inset; }
+  .login-page h1 {
+    color: #fff;
+    opacity: 0.87;
+    font-weight: 500;
+    margin: 15px 0;
+    margin-bottom: 15px;
+    font-size: 27px;
+    line-height: 110%; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page h1 {
+        margin: 25px 0;
+        font-size: 31px;
+        line-height: 120%; } }
+  .login-page p {
+    color: #fff;
+    opacity: 0.87;
+    font-size: 16px;
+    margin: 12px 20px;
+    font-weight: 400; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .login-page p {
+        margin: 15px 20px; } }
+  .login-page a.forgot {
+    color: #eee;
+    text-decoration: underline; }
+
+.swiper-pagination {
+  z-index: 0 !important; }
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 20px; }
+  .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+    margin: 0 7px; }
+  .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet-active {
+    background-color: #f26243;
+    opacity: 1;
+    width: 16px;
+    height: 16px;
+    margin-bottom: -2px; }

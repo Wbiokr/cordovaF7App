@@ -1,0 +1,55 @@
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <div class="left"><a class="link icon-only open-panel" href="#"><i class="material-icons">menu</i></a></div>
+    <div class="center sliding" id="action-title">Actions</div>
+    <div class="right"><a href="views/action-builder.html" class="link icon-only"><i class="material-icons">add</i></a>
+    </div>
+  </div>
+</div>
+<div class="pages navbar-through">
+  <div data-page="actions" class="page">
+    <div class="page-content padding-none">
+      <div class="tabs">
+        <div id="actions-recent" title="Recent" class="tab active">
+          <div id="actions-recent-wrap">
+          </div>
+        </div>
+        <div id="actions-installed" title="Installed" class="tab">
+          <div id="actions-installed-wrap">
+          </div>
+        </div>
+        <div id="actions-discover" title="Discover" class="tab">
+          <div id="actions-discover-wrap">
+          </div>
+        </div>
+        <!-- <div id="actions-settings" class="tab">
+          <div id="actions-settings-wrap">
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="toolbar tabbar tabbar-labels">
+      <div class="toolbar-inner">
+        <a href="#actions-recent" ref="actions-recent" class="tab-link active action-tab-link">
+          <!-- <span class="lnr lnr-history toolbar-icon"></span> -->
+          <i class="material-icons">schedule</i>
+          <span class="tabbar-label">{{t "label.recent" defaultValue="Recent"}}</span>
+        </a>
+        <a href="#actions-installed" ref="actions-installed" class="tab-link action-tab-link">
+          <!-- <span class="lnr lnr-rocket toolbar-icon"></span> -->
+          <!-- <i class="material-icons">flash_on</i> -->
+          <span class="icon icon-actions"></span>
+          <span class="tabbar-label">{{t "label.actions" defaultValue="Actions"}}</span>
+        </a>
+        <a href="#actions-discover" ref="actions-discover" class="tab-link action-tab-link">
+          <i class="material-icons">near_me</i>
+          <span class="tabbar-label">{{t "label.discover" defaultValue="Discover"}}</span>
+        </a>
+        <!-- <a href="#actions-settings" class="tab-link action-tab-link">
+          <i class="material-icons">settings</i>
+          <span class="tabbar-label">{{t "label.settings" defaultValue="Settings"}}</span>
+        </a> -->
+      </div>
+    </div>
+  </div>
+</div>

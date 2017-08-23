@@ -1,0 +1,69 @@
+
+
+<!-- <script type="text/javascript" src="vendors/symple/socket.io.js"></script>
+<script type="text/javascript" src="vendors/symple/symple.js"></script>
+<script type="text/javascript" src="vendors/symple/symple.client.js"></script> -->
+
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <!-- <div class="left"><a class="link icon-only open-panel" href="#"><i class="material-icons">menu</i></a></div> -->
+    <div class="center sliding" id="chat-title">{{t "chat.title" defaultValue="Chat"}}</div>
+<!--     <div class="right">
+      <a href="#" class="link icon-only" id="select-contacts"> -->
+        <!-- <img src="images/icons/NewChat.png"> -->
+<!--          <span class="icon icon-newchat"></span>
+      </a> -->
+    </div>
+  </div>
+</div> 
+<div class="pages navbar-through">
+  <div data-page="chat" class="page">
+    <div class="page-content padding-none">
+      <div class="tabs">
+        <div id="recent" class="tab active">
+          <div id="recent-wrap">
+          </div>
+        </div>
+        <div id="favorites" class="tab">
+          <div id="favorites-wrap">
+          </div>
+        </div>
+        <div id="contacts" class="tab">
+          <div id="contact-wrap">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toolbar tabbar tabbar-labels">
+      <div class="toolbar-inner">
+        <a href="#recent" class="tab-link active chat-tab-link">
+          <!-- <i class="icon">
+            <span class="unread-messages badge bg-red" style="display: none">0</span>
+          </i> -->
+          <span class="icon icon-chat"></span>
+          <span class="tabbar-label">{{t "label.chat" defaultValue="Chat"}}</span>
+        </a>
+        <!-- <a href="#favorites" class="tab-link chat-tab-link">
+          <i class="material-icons">star_border</i>
+          <span class="tabbar-label">{{t "label.favorites" defaultValue="Favorites"}}</span>
+        </a> -->
+        <a href="#contacts" class="tab-link chat-tab-link">
+          <!-- <span class="lnr lnr-users2 toolbar-icon"></span> -->
+          <span class="icon icon-contacts"></span>
+          <span class="tabbar-label">{{t "label.contacts" defaultValue="Contacts"}}</span>
+        </a>
+        <!-- <a href="views/actions.html" class="link"> -->
+          <!-- <span class="lnr lnr-rocket toolbar-icon"></span> -->
+          <!-- <i class="material-icons">flash_on</i> -->
+         <!--  <span class="icon icon-actions"></span>
+          <span class="tabbar-label">{{t "label.actions" defaultValue="Actions"}}</span>
+        </a> -->
+        <!-- <a href="#" class="tab-link chat-tab-link open-panel"> -->
+          <!-- <span class="lnr lnr-ellipsis toolbar-icon"></span> -->
+          <!-- <span class="icon icon-more"></span> -->
+          <!-- <span class="tabbar-label">{{t "label.more" defaultValue="More"}}</span> -->
+        <!-- </a> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--(if target dist)>
+{{banner}}
+<!(endif)-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' gap://ready file://* *; script-src * 'unsafe-eval' 'unsafe-inline'; connect-src *; img-src 'self' data: blob: filesystem: *; style-src * 'unsafe-inline' ; media-src *">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/manifest.json">
+  <link rel="apple-touch-icon" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-startup-image" href="favicon/splash-iphone.png">
+  <meta name="msapplication-TileColor" content="#ff9502">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ff9502">
+
+  <title>Tommy</title>
+
+  <link rel="stylesheet" href="lib/vendors/framework7/framework7.ios.min.css">
+  <link rel="stylesheet" href="lib/vendors/material/material-icons.css">
+  <link rel="stylesheet" href="lib/styles/tommy.css">
+  <link rel="stylesheet" href="styles/css/style.css">
+  <link rel="stylesheet" href="styles/css/chat.css">
+  <link rel="stylesheet" href="styles/css/addons.css">
+  <link rel="stylesheet" href="styles/css/actions.css">
+  <link rel="stylesheet" href="styles/css/contacts.css">
+
+  <script type="text/javascript">
+  var $CONFIG = {};
+  $CONFIG['version'] = '1';
+  $CONFIG['release_time'] = '0';
+  </script>
+  <!--<!(endif)-->
+  <!--(if target dist)>
+  <script type="text/javascript">
+      var $CONFIG = {};
+      $CONFIG['version'] = '{{version}}';
+      $CONFIG['release_time'] = '{{rlsdate2}}';
+  </script>
+  <!(endif)-->
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+</head>
+
+<body>
+  <div class="panel-overlay"></div>
+  <div class="panel panel-left panel-cover">
+    <a id="main-menu-drag-handle" href="#"><img src="images/DragHandle.png"></a>
+    <div id="main-menu-content">
+      <div id="main-menu-account" data-template="mainMenuAccount"></div>
+      <div id="main-menu-account-list" data-template="mainMenuAccountsList"></div>
+      <div id="main-menu" data-template="mainMenu"></div>
+      <div class="clear"></div>
+      <div id="main-menu-recommended-addons" data-template="mainMenuRecommendedAddons"></div>
+      <div class="clear"></div>
+      <div id="main-menu-administration" class="menu menu-horizontal menu-border">
+        <div class="menu-title">Administration</div>
+        <div class="menu-block">
+          <ul>
+            <li>
+              <a href="views/account.html" class="menu-link close-panel">
+                <img src="images/Account.png">
+                <div class="menu-label">Account</div>
+              </a>
+            </li>
+            <li>
+              <a href="views/addons.html" class="menu-link close-panel">
+                <img src="images/Addons.png">
+                <div class="menu-label">Add-ons</div>
+              </a>
+            </li>
+            <li>
+              <a href="views/team-registration.html" class="menu-link close-panel">
+                <img src="images/Team.png">
+                <div class="menu-label">Create Team</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="views toolbar-through">
+    <div class="view view-main">
+      <div class="navbar">
+        <div class="navbar-inner">
+        </div>
+      </div>
+      <div class="pages navbar-through toolbar-through">
+        <div data-page="index" class="page">
+          <div class="page-content">
+            <!-- login-screen-content  id="index">-->
+             <!-- <div class="login-screen-title"> -->
+                <!-- <div class="loginlogo splashlogo"><img alt="PayApp" title="PayApp" src="styles/img/logo-white.png"></div> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat contacts menu popover -->
+  <div class="popover chat-contact-links">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+      <div class="list-block">
+        <ul>
+          <li><a href="#" class="list-button item-link" data-action="new-chat">New Chat</a></li>
+          <li><a href="views/add-contacts.html" class="list-button item-link">Add Contact</a></li>
+          <li><a href="#" class="list-button item-link" data-action="scan-qr">Scan QR Code</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div style="color:#fff; display:none;" class="preloader-indicator-modaler" id="success"><span class="fa fa-check" style="color:green;"></span> Success</div>
+  <div style="color:#fff; display:none;" class="preloader-indicator-modaler" id="loading"><span class="preloader preloader-white"></span> <span id="load-text">Loading</span></div>
+  <div style="color:#fff; display:none;" class="no-internet" id="overlay-error">No Internet Connection</div> -->
+
+  <script type="text/javascript" src="vendors/symple/socket.io.js"></script>
+  <!-- <script type="text/javascript" src="https://js.stripe.com/v2/"></script> -->
+  <script data-main="scripts/main" src="lib/vendors/require/require.js"></script>
+</body>
+</html>

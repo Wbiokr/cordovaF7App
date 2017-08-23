@@ -1,0 +1,21 @@
+.contact-approve-modal {
+  /*min-height: 200px;*/
+}
+
+.contact-approve-modal .title-block {
+  /*margin-bottom: 20px;*/
+  text-align: left;
+}
+
+.contact-approve-modal .title-block .modal-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 2px;
+  text-align: left;
+}
+
+.contact-approve-modal .title-block .modal-subtitle {
+  color: #999;
+  font-size: 13px;
+  text-align: left;
+}

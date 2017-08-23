@@ -1,0 +1,15 @@
+platforms/**
+!platforms/platforms.json
+plugins/**
+!plugins/fetch.json
+node_modules
+*.log
+backup
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Mac developers !
+.DS_Store

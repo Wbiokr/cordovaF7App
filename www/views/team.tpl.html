@@ -1,0 +1,203 @@
+<script id="teamMemberListTemplate" type="text/template">
+  {{#if_any this}}
+  <!-- <div class="list-block media-list team-member-list no-margin no-border-top"> -->
+  <ul>
+    {{#each this}}
+    <li class="swipeout">
+      <a href="views/team-member-details.html?user_id={{user_id}}&first_name={{first_name}}&last_name={{last_name}}" class="item-link item-content swipeout-content">
+        <div class="item-media">
+          {{circleAvatar this}}
+        </div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">{{first_name}} {{last_name}}</div>
+            <!-- <div class="item-after time">{{fromnow created_at}}</div> -->
+          </div>
+          <div class="item-text">
+            {{tagList roles locations tags}}
+          </div>
+        </div>
+      </a>
+      <div class="swipeout-actions-right">
+        <a class="swipeout bg-red remove-btn" href="#" data-id="{{id}}" data-user-id="{{user_id}}"><span class="lnr lnr-cross"></span></a>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+  <!-- </div> -->
+  {{else}}
+  <div class="no-data">
+    <h2>{{t "team.no_team_members" defaultValue="No team members"}}</h2>
+    <p>{{t "team.no_team_members_hint" defaultValue="Invite some friends or collegues to get started"}}</p>
+  </div>
+  {{/if_any}}
+</script>
+
+<!-- <script id="teamMemberProfileLinksTemplate" type="text/template">
+</script> -->
+
+<script id="teamMemberProfileTemplate" type="text/template">
+  <div data-template="profileHeaderTemplate"></div>
+
+  <div class="menu menu-horizontal">
+    <div class="menu-block">
+      <ul>
+        {{#if_compare user_id "!=" @global.user.id}}
+        <li>
+          <a href="views/chat-view.html?user_ids={{user_id}}&icon_url={{icon_url}}&title={{first_name}} {{last_name}}" class="menu-link">
+            <img src="images/Chat.png" class="round">
+            <div class="menu-label">{{t "label.chat" defaultValue="Chat"}}</div>
+          </a>
+        </li>
+        {{/if_compare}} 
+        {{#each addon_links}}
+        <li>
+          <a href="{{url}}" class="menu-link" data-context='{"actor_id": {{../user_id}}}'>
+            <img src="{{icon_url}}" class="round">
+            <div class="item-title">{{title}}</div>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="list-block topset">
+    <ul>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">{{t "label.first" defaultValue="First"}}</div>
+            <div class="item-input">{{first_name}}</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">{{t "label.last" defaultValue="Last"}}</div>
+            <div class="item-input">{{last_name}}</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">{{t "label.email" defaultValue="Email"}}</div>
+            <div class="item-input">{{email}}</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">{{t "label.roles" defaultValue="Roles"}}</div>
+            <div class="item-input">
+              {{role_list}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">{{t "label.locations" defaultValue="Locations"}}</div>
+            <div class="item-input">
+              {{location_list}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">{{t "label.tags" defaultValue="Tags"}}</div>
+            <div class="item-input">
+              {{tag_list}}
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- </form> -->
+</script>
+
+<script id="teamMemberProfileEditFormTemplate" type="text/template">
+  <form action="{{apiUrl "team/members" user_id}}" method="PUT" id="team-member-edit-form">
+    <div class="list-block">
+      <ul>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.first_name" defaultValue="First Name"}}</div>
+              <div class="item-input">
+                <input type="text" name="first_name" placeholder="" value="{{first_name}}">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.last_name" defaultValue="Last Name"}}</div>
+              <div class="item-input">
+                <input type="text" name="last_name" placeholder="" value="{{last_name}}">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.email" defaultValue="Email"}}</div>
+              <div class="item-input">
+                <input type="email" name="email" placeholder="" value="{{email}}">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.roles" defaultValue="Roles"}}</div>
+              <div class="item-input">
+                <input type="text" name="role_list" placeholder="{{t "team.enter_roles_separated_by commas" defaultValue="Enter roles separated by commas"}}" value="{{role_lists}}">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.locations" defaultValue="Locations"}}</div>
+              <div class="item-input">
+                <input type="text" name="location_list" placeholder="{{t "team.enter_locations_separated_by commas" defaultValue="Enter locations separated by commas"}}" value="{{location_list}}">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.tags" defaultValue="Tags"}}</div>
+              <div class="item-input">
+                <input type="text" name="tag_list" placeholder="{{t "team.enter_tags_separated_by commas" defaultValue="Enter tags separated by commas"}}" value="{{tag_list}}">
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </form>
+
+  {{#ifCanDeleteTeamMember user_id}}
+  <!-- <div class="content-block-title">Menu</div> -->
+  <div class="list-block">
+    <ul>
+      <li><a href="#" id="team-member-delete" class="list-button item-link">{{t "label.delete" defaultValue="Delete"}}</a></li>
+    </ul>
+  </div>
+  {{/ifCanDeleteTeamMember}}
+<!-- </div> -->
+</script>

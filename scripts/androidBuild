@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /projects/tommy/tommy_app/public/apps/mobile
+cordova build
+cordova run android
+adb logcat | grep -i console

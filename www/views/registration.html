@@ -1,0 +1,40 @@
+<div class="navbar">
+  <div class="navbar-inner">
+  </div>
+</div>
+
+<div class="pages">
+  <div class="page toolbar-fixed no-navbar toolbar-big login-page" data-page="registration" id="registration">
+
+    <div class="page-shadow"></div>
+    <div class="page-content">
+
+      <div class="logo-center-block">
+        <img class="login-logo" alt="Tommy" title="Tommy" src="images/LogoWhite.png">
+        <img class="login-logo-text" alt="Tommy Text" src="images/TommyTextWhite.png">
+      </div>
+
+      <form id="check-account" class="reg-form">
+        <h1>What is your email<br>or phone number?</h1>
+        <p>If you don't have a Tommy account, we'll get one setup</p>
+
+        <div class="inputs">
+          <input type="text" class="username active input-email-phone phone" value="" placeholder="Email address / Phone" name="username" id="login_username" autocorrect="off" autocapitalize="none">
+          <div class="icons">
+            <i class="material-icons inputIconE icon-email">mail_outline</i>
+            <i class="material-icons inputIconE icon-phone">phone</i>
+          </div>
+        </div>
+
+        <div class="country-code" data-template="countryListTemplate" style="display: none"></div>
+
+        <!-- <div class="get-started-btn">
+          <button type="submit">Next</button>
+        </div> -->
+      </form>
+    </div>
+    <div class="toolbar toolbar-bottom toolbar-bottom-button">
+      <a href="#" data-submit="#check-account" class="button button-big button-fill fixed-button">{{t "label.next" defaultValue="Next"}}</a>
+    </div>
+  </div>
+</div>

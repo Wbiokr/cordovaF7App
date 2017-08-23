@@ -1,0 +1,21 @@
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="#" class="back link icon-only"><i class="material-icons md-36">keyboard_arrow_left</i></a></div>
+    <div class="center sliding">{{t "actions.builder_activity_title" defaultValue="Pick an Activity"}}</div>
+  </div>
+</div>
+<div class="pages navbar-through">
+  <div data-page="action-builder-activity" class="page" id="action-builder-activity">
+    <div class="page-content">
+      <div class="content-block-title centered-title"><span>{{t "label.hint" defaultValue="Hint"}}</span></div>
+      <div class="content-block centered">
+        {{t "actions.builder_conditions_hint" defaultValue="Activities are what Tommy does when your Trigger is fired and the Conditions are correct."}}
+      </div>
+      <div id="action-builder-activity-wrap">
+      </div>
+    </div>
+    <div class="toolbar toolbar-bottom toolbar-bottom-button toolbar-hidden">
+      <a href="views/action-builder-settings.html?action_id={{url_query.action_id}}" class="button button-big color-blue button-fill fixed-button">{{t "label.continue" defaultValue="Continue"}}</a>
+    </div>
+  </div>
+</div>

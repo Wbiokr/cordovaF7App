@@ -1,0 +1,645 @@
+<script id="actionListTemplate" type="text/template">
+  {{#if_any this}}
+    <div class="list-block media-list action-list no-margin no-border-top">
+      <ul>
+        {{#each this}}
+        <li class="swipeout">
+          <a href="views/action-details.html?action_id={{id}}" class="item-link item-content swipeout-content">
+            <div class="item-media">
+            {{#if icon_url}}
+              <img class="icon" src="{{icon_url}}" />
+            {{/if}}
+            </div>
+            <div class="item-inner no-dividers">
+              <div class="item-title-row">
+                <div class="item-title">{{title}} </div>
+                <div class="item-after">
+                  {{#if installed}}
+                    Installed
+                  {{else}}
+                    Not Installed
+                  {{/if}}
+                </div>
+              </div>
+              <div class="item-text">
+                {{summary}}
+                <p class="action-icons">
+                  {{#each dependencies}}
+                  {{#if icon_url}}
+                    <span class="plus">+</span>
+                    <img class="icon icon-24" src="{{icon_url}}" />
+                  {{/if}}
+                  {{/each}}
+                </p>
+              </div>
+            </div>
+          </a>
+          <div class="swipeout-actions-right">
+            <a class="swipeout bg-red remove-btn" href="#" data-path="{{path}}"><span class="lnr lnr-cross"></span></a>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{else}}
+    <div class="content-block no-data">
+      <h2>{{t "actions.no_actions" defaultValue="No actions to display"}}</h2>
+      <p>{{t "actions.no_actions_hint" defaultValue="Try installing and running some actions to populate this page"}}</p>
+    </div>
+  {{/if_any}}
+</script>
+
+<script id="actionsExploreTemplate" type="text/template">
+  <!-- <div class="page-content"> -->
+    <div class="content-block no-data">
+      <p>Coming soon...</p>
+    </div>
+  <!-- </div> -->
+</script>
+
+<script id="actionsSettingsTemplate" type="text/template">
+  <!-- <div class="page-content"> -->
+    <div class="content-block">
+      <p>Coming soon...</p>
+    </div>
+  <!-- </div> -->
+</script>
+
+<script id="actionDetailsTemplate" type="text/template">
+  <div class="page-content action-details zerba">
+    <div class="content-block topset text-center">
+      <!-- <div class="content-block-inner"> -->
+        <!--
+        {{#if_compare package "!=" @root.package}}
+        {{/if_compare}}
+        -->
+        <div class="action-icons">
+          {{#each dependencies}}
+            {{#if icon_url}}
+              <span class="plus">+</span>
+              <img class="icon" src="{{icon_url}}" />
+              <!-- <span class="icon"><i class="fa fa-{{icon}}"></i></span> -->
+            {{/if}}
+          {{/each}}
+        </div>
+        <h3 class="action-title">{{title}}</h3>
+        {{#if summary}}
+          <p class="action-summary">{{summary}}<p>
+        {{/if}}
+      <!-- </div> -->
+    </div>
+
+    {{#if description}}
+    <div class="content-block-title centered-title"><span>{{t "label.description" defaultValue="Description"}}</span></div>
+    <div class="content-block">
+      <div class="content-block-inner">
+        <!-- <h3>Description</h3> -->
+        <p>{{description}}<p></div>
+    </div>
+    {{/if}}
+
+    {{#if addon_version}}
+    <div class="content-block-title centered-title"><span>{{t "label.information" defaultValue="Information"}}</span></div>
+    <div class="content-block">
+      <div class="content-block-inner">
+        <!-- <h3>Information</h3> -->
+        {{#if addon_version.developer_name}}
+        <div class="row">
+          <div class="col-50 align-right">{{t "label.developer" defaultValue="Developer"}}</div>
+          <div class="col-50">{{addon_version.developer_name}}</div>
+        </div>
+        {{/if}}
+        {{#if addon_version.homepage}}
+        <div class="row">
+          <div class="col-50 align-right">{{t "label.homepage" defaultValue="Homepage"}}</div>
+          <div class="col-50">{{addon_version.homepage}}</div>
+        </div>
+        {{/if}}
+        {{#if action_install}}
+        {{#if action_install.schedule}}
+        {{#if action_install.schedule.scheduled_at}}
+        <div class="row">
+          <div class="col-50 align-right">{{t "label.scheduled_at" defaultValue="Scheduled At"}}</div>
+          <div class="col-50">{{action_install.schedule.scheduled_at}}</div>
+        </div>
+        {{/if}}
+        {{/if}}
+        {{/if}}
+        <div class="row">
+          <div class="col-50 align-right">{{t "label.private" defaultValue="Private"}}</div>
+          <div class="col-50">{{#if private}}Yes{{else}}No{{/if}}</div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if_any dependencies}}
+    <div class="content-block-title centered-title"><span>{{t "label.required_addons" defaultValue="Required Addons"}}</span></div>
+    <div class="content-block required-addons">
+      <div class="content-block-inner">
+        <!-- <h3>Required Addons</h3> -->
+        {{#each dependencies}}
+          <div class="row">
+            <div class="col-50 col-left align-right">
+            {{#if icon_url}}
+              <img class="icon icon-24" src="{{icon_url}}" />
+            {{/if}}
+            </div>
+            <div class="col-50 col-right">{{title}} ({{version}})</div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if_any}}
+
+    <div class="list-block stacked">
+      <ul>
+      {{#if installed}}
+        <li><a href="views/action-history.html?action_id={{id}}" class="list-button item-link">{{t "label.history" defaultValue="History"}}</a></li>
+        <li><a href="views/action-settings.html?action_id={{id}}" class="list-button item-link">{{t "label.settings" defaultValue="Settings"}}</a></li>
+        {{#if trigger}}
+        {{#if trigger.execute}}
+          <li><a href="#" id="action-test" class="list-button item-link">{{t "label.test_now" defaultValue="Test_now"}}</a></li>
+        {{/if}}
+        {{/if}}
+        <li><a href="#" id="action-uninstall" class="list-button item-link">{{t "label.uninstall" defaultValue="Uninstall"}}</a></li>
+      {{else}}
+        <li><a href="#" id="action-install" class="list-button item-link">{{t "label.install" defaultValue="Install"}}</a></li>
+      {{/if}}
+      {{#if custom}}
+      {{#if_compare user_id "==" @global.user.id}}
+        <li><a href="#" id="action-delete" class="list-button item-link">{{t "label.delete" defaultValue="Delete"}}</a></li>
+      {{/if_compare}} 
+      {{/if}}
+      </ul>
+    </div>
+  </div>
+</script>
+
+<script id="actionSettingsTemplate" type="text/template">
+
+  <!-- Task Options -->
+  <form id="action-settings-task-options-form">
+  </form>
+
+  <!-- Trigger Filters -->
+  {{#if @global.team}}
+  <form id="action-settings-filter-form">
+    <div class="content-block-title">{{t "actions.limit_trigger_to_user" defaultValue="Limit Trigger to User"}}</div>
+    <div class="list-block tag-select" data-searchbar="true" data-page-title="Manager Rights">
+      <ul>
+        <li class="tag-search">
+          <a href="#" class="item-link">
+            <select multiple></select>
+            <div class="item-content">
+              <div class="item-media"><i class="material-icons md-36">search</i></div>
+              <div class="item-inner">
+                <div class="item-title">{{t "common.search_users_roles_locations_tags" defaultValue="Search Users, Roles, Locations and Tags"}}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- <div class="content-block-title">Limit Trigger to User</div>
+    <div class="list-block">
+      <ul>
+        <li data-scope="users">
+          <a href="#" class="item-link smart-select" data-searchbar="true">
+            <select name="user" multiple></select>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">{{t "label.users" defaultValue="Users"}}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li data-scope="roles">
+          <a href="#" class="item-link smart-select" data-searchbar="true">
+            <select name="role" multiple></select>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">{{t "label.roles" defaultValue="Roles"}}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li data-scope="locations">
+          <a href="#" class="item-link smart-select" data-searchbar="true">
+            <select name="location" multiple></select>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">{{t "label.locations" defaultValue="Locations"}}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li data-scope="tags">
+          <a href="#" class="item-link smart-select" data-searchbar="true">
+            <select name="tag" multiple></select>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">{{t "label.tags" defaultValue="Tags"}}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div> -->
+  </form>
+  {{/if}}
+
+  <!-- Conditions Options -->
+  <form id="action-settings-conditions-options-form">
+  </form>
+
+  <!-- Parameter Mapping -->
+  <div data-template="actionSettingsParameterMappingFormTemplate">
+  </div>
+
+  <!-- Schedule -->
+  <div data-template="actionSettingsScheduleTemplate">
+  </div>
+
+  <!-- User Permissions -->
+  {{#if @global.team}}
+  <form id="action-settings-permissions-form">
+    <div class="content-block-title">{{t "actions.limit_access_to_users" defaultValue="Limit Access to Users"}}</div>
+    <div class="list-block tag-select" data-searchbar="true" data-page-title="{{t "actions.limit_access_to_users" defaultValue="Limit Access to Users"}}">
+      <ul>
+        <li class="tag-search">
+          <a href="#" class="item-link">
+            <select multiple></select>
+            <div class="item-content">
+              <div class="item-media"><i class="material-icons md-36">search</i></div>
+              <div class="item-inner">
+                <div class="item-title">{{t "common.search_users_roles_locations_tags" defaultValue="Search Users, Roles, Locations and Tags"}}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- <div class="list-block">
+      <ul>
+        <li data-scope="users">
+          <a href="#" class="item-link smart-select" data-searchbar="true">
+            <select name="users" multiple></select>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">{{t "label.users" defaultValue="Users"}}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div> -->
+  </form>
+  {{/if}}
+</script>
+
+<script id="actionSettingsScheduleTemplate" type="text/template">
+  <div class="content-block-title">When to Run</div>
+  <div class="list-block">
+    <ul>
+      <li>
+        <a class="item-link item-content action-schedule" href="views/action-settings-schedule.html">
+          <div class="item-inner">
+            <div class="item-title">{{t "label.schedule" defaultValue="Schedule"}}</div>
+            <div class="item-after">{{description}}</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</script>
+
+<script id="actionOptionsFormFieldsTemplate" type="text/template">
+  {{#each this}}
+  <div class="content-block-title">{{name}} Options</div>
+  <div class="list-block">
+    <ul>
+      {{#each options}}
+      <li data-path="{{../../path}}" data-param="{{@key}}">
+        {{#if operator}}
+          <a class="item-link item-content action-condition" href="views/action-settings-condition.html" data-path="{{../../path}}" data-param="{{@key}}">
+            <input type="hidden" data-key="value" name="{{../../path}}[{{@key}}][value]" value="{{value}}">
+            <input type="hidden" data-key="operator" name="{{../../path}}[{{@key}}][operator]" value="{{operator}}">
+            <div class="item-inner">
+              <div class="item-title label">
+                {{#if title}}
+                  {{title}}
+                {{else}}
+                  {{@key}}
+                {{/if}}
+              </div>
+              <div class="item-after">
+                {{#if operator}}
+                  {{sentenceCase operator}}
+                  {{value}}
+                {{/if}}
+              </div>
+            </div>
+          </a>
+        {{else}}
+          {{#if select}}
+          <a href="#" class="item-link smart-select" data-searchbar="true" data-back-on-select="true">
+            <select name="{{../../../path}}[{{@key}}][value]">
+              {{#each select}}
+              <option value="{{this}}" {{isSelected this ../value}}>{{this}}</option>
+              {{/each}}
+            </select>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">
+                {{#if title}}
+                  {{title}}
+                {{else}}
+                  {{@key}}
+                {{/if}}
+                </div>
+                <div class="item-after">{{value}}</div>
+              </div>
+            </div>
+          </a>
+          {{else}}
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">
+                {{#if title}}
+                  {{title}}
+                {{else}}
+                  {{@key}}
+                {{/if}}
+              </div>
+              <div class="item-input">
+                <input type="text" name="{{../../../path}}[{{@key}}][value]" placeholder="{{hint}}" value="{{value}}">
+              </div>
+            </div>
+          </div>
+          {{/if}}
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  {{/each}}
+</script>
+
+<script id="actionSettingsParameterMappingFormTemplate" type="text/template">
+  <form id="action-settings-mappings-form">
+    <div class="content-block-title">{{title}}</div>
+    <div class="list-block">
+      <ul>
+        {{#each mappings}}
+        <li data-param="{{@key}}">
+          <a href="#" class="item-link smart-select" data-searchbar="true" data-back-on-select="true" data-page-title="Select {{@key}}">
+            <select>
+              <optgroup class="mappings-custom" label="Custom">
+                <option data-source="custom" value="">{{t "label.custom_text" defaultValue="Custom Text"}}</option>
+              </optgroup>
+              <optgroup class="mappings-trigger" label="Trigger"></optgroup>
+              <optgroup class="mappings-user" label="User"></optgroup>
+              <optgroup class="mappings-owner" label="Owner"></optgroup>
+              <optgroup class="mappings-account" label="Account"></optgroup>
+            </select>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">
+                {{#if title}}
+                  {{title}}
+                {{else}}
+                  {{@key}}
+                {{/if}}
+                </div>
+              </div>
+            </div>
+          </a>
+          <div class="item-content textarea" style="display: none;">
+            <div class="item-inner">
+              <div class="item-input">
+                <textarea name="{{@key}}" placeholder="{{t "actions.enter_content_for_hint" defaultValue="Enter content for"}} '{{@key}}'">{{value}}</textarea>
+              </div>
+            </div>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <!-- <div class="list-block inset topset">
+      <button type="submit" class="button button-big color-blue button-fill full-width">{{t "label.save" defaultValue="Save"}}</button>
+    </div> -->
+  </form>
+</script>
+
+<!-- <script id="actionSettingsPermissionsFormTemplate" type="text/template">
+  <form id="action-settings-permissions-form">
+    <div class="content-block-title centered-title"><span>{{t "label.permissions" defaultValue="Permissions"}}</span></div>
+    <div class="list-block">
+      <ul>
+        <li>
+          <a href="#" class="item-link smart-select" data-back-on-select="true">
+            <select name="users">
+            </select>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">{{t "label.users" defaultValue="Users"}}</div>
+                <div class="item-after"></div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </form>
+</script> -->
+
+<script id="actionHistoryTemplate" type="text/template">
+  <div class="page-content">
+    {{#if_any this}}
+      <div class="list-block media-list topset no-border-top">
+        <ul>
+          {{#each this}}
+          <li>
+            <!-- <a href="#" class="item-link item-content"> -->
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title-row">
+                    <div class="item-title">{{name}}</div>
+                    <div class="item-after">{{prettyTime created_at}}</div>
+                  </div>
+                  <div class="item-text">{{message}}</div>
+                </div>
+              </div>
+            <!-- </a> -->
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{else}}
+      <div class="content-block">
+        <p>{{t "actions.history_no_events" defaultValue="No events to display"}}</p>
+      </div>
+    {{/if_any}}
+  </div>
+</script>
+
+<script id="actionBuilderTaskFormTemplate" type="text/template">
+  <form id="action-builder-task-form">
+    <div class="content-block-title centered-title"><span>{{t "label.task" defaultValue="Task"}}</span></div>
+    <div class="list-block media-list">
+      <ul>
+        {{#each addons}}
+        <li>
+          <a href="#" class="item-link smart-select" data-back-on-select="true">
+            <select name="{{@key}}">
+              <option value="" selected disabled></option>
+              {{#each tasks}}
+              <option value="{{id}}" data-trigger-id="{{trigger_id}}" {{#if @root.action.task}}{{isSelected id @root.action.task.id}}{{/if}}>{{title}}</option>
+              {{/each}}
+            </select>
+            <div class="item-content">
+              <div class="item-media">
+              {{#if icon_url}}
+                <img class="icon" src="{{icon_url}}" />
+              {{/if}}
+              </div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">{{title}}</div>
+                  <div class="item-after"></div>
+                </div>
+                <div class="item-text">
+                  <!-- {{developer_name}} -->
+                  {{summary}}
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </form>
+</script>
+
+<script id="actionBuilderTriggerFormTemplate" type="text/template">
+  <form id="action-builder-trigger-form">
+    <div class="content-block-title centered-title"><span>{{t "label.trigger" defaultValue="Trigger"}}</span></div>
+    <div class="list-block media-list">
+      <ul>
+        {{#each addons}}
+        <li>
+          <a href="#" class="item-link smart-select" data-back-on-select="true">
+            <select name="{{@key}}">
+              <option value="" selected disabled></option>
+              {{#each triggers}}
+              <option value="{{id}}" {{#if @root.action.trigger}}{{isSelected id @root.action.trigger.id}}{{/if}}>{{title}}</option>
+              {{/each}}
+            </select>
+            <div class="item-content">
+              <div class="item-media">
+              {{#if icon_url}}
+                <img class="icon" src="{{icon_url}}" />
+              {{/if}}
+              </div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">{{title}}</div>
+                  <div class="item-after"></div>
+                </div>
+                <div class="item-text">
+                  <!-- {{developer_name}} -->
+                  {{summary}}
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </form>
+</script>
+
+<script id="actionBuilderConditionsFormTemplate" type="text/template">
+  <form id="action-builder-conditions-form">
+    <div class="content-block-title centered-title"><span>{{t "label.condition" defaultValue="Condition"}}</span></div>
+    <div class="list-block media-list">
+      <ul>
+        {{#each addons}}
+        <li>
+          <a href="#" class="item-link smart-select">
+            <select name="{{@key}}" multiple>
+              <option value="" selected disabled></option>
+              {{#each conditions}}
+              {{#ifExistsInArrayOfObjects @root.action.conditions "id" id}}
+                <option value="{{id}}" selected>{{title}}</option>
+              {{else}}
+                <option value="{{id}}">{{title}}</option>
+              {{/ifExistsInArrayOfObjects}}
+              {{/each}}
+            </select>
+            <div class="item-content">
+              <div class="item-media">
+              {{#if icon_url}}
+                <img class="icon" src="{{icon_url}}" />
+              {{/if}}
+              </div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">{{title}}</div>
+                  <div class="item-after">{{value}}</div>
+                </div>
+                <div class="item-text">
+                  <!-- {{developer_name}} -->
+                  {{summary}}
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </form>
+</script>
+
+<script id="actionBuilderActivityFormTemplate" type="text/template">
+  <form id="action-builder-activity-form">
+    <div class="content-block-title centered-title"><span>{{t "label.activities" defaultValue="Activities"}}</span></div>
+    <div class="list-block media-list">
+      <ul>
+        {{#each addons}}
+        <li>
+          <a href="#" class="item-link smart-select" data-back-on-select="true">
+            <select name="{{@key}}">
+              <option value="" selected disabled></option>
+              {{#each activities}}
+              <option value="{{id}}" {{#if @root.action.activity}}{{isSelected id @root.action.activity.id}}{{/if}}>{{title}}</option>
+              {{/each}}
+            </select>
+            <div class="item-content">
+              <div class="item-media">
+              {{#if icon_url}}
+                <img class="icon" src="{{icon_url}}" />
+              {{/if}}
+              </div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">{{title}}</div>
+                  <div class="item-after"></div>
+                </div>
+                <div class="item-text">
+                  <!-- {{developer_name}} -->
+                  {{summary}}
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </form>
+</script>

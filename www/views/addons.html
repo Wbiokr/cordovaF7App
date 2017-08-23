@@ -1,0 +1,23 @@
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <div class="left"><a class="link icon-only open-panel" href="#"><i class="material-icons">menu</i></a></div>
+    <div id="addon-title" class="center sliding">{{t "addons.title" defaultValue="Addons"}}</div>
+    <div class="right"></div>
+  </div>
+</div>
+<div class="pages navbar-through">
+  <div class="page" data-page="addons">
+    <form data-search-list=".addon-list" data-search-in=".item-title" class="searchbar searchbar-init">
+      <div class="searchbar-input">
+        <input type="search" placeholder="{{t "label.search" defaultValue="Search"}}"><a href="#" class="searchbar-clear"></a>
+      </div><a href="#" class="searchbar-cancel">{{t "label.cancel" defaultValue="Cancel"}}</a>
+    </form>
+    <div class="searchbar-overlay"></div>
+    <div class="page-content">
+      <div class="content-block searchbar-not-found no-data">
+        <h2>{{t "common.nothing_found" defaultValue="Nothing found"}}</h2></div>
+      <div class="list-block media-list addon-list searchbar-found no-margin" data-template="addonListTemplate">
+      </div>
+    </div>
+  </div>
+</div>

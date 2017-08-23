@@ -1,0 +1,169 @@
+<script id="addonListTemplate" type="text/template">
+  {{#if_any this}}
+  <ul>
+    {{#each this}}
+    <li>
+      <a href="views/addon-details.html?package={{package}}&title={{title}}" class="item-link item-content">
+        <div class="item-media">
+        {{#if icon_url}}
+          <img class="icon" src="{{icon_url}}" />
+        {{/if}}
+        </div>
+        <div class="item-inner no-dividers">
+          <div class="item-title-row">
+            <div class="item-title">{{title}}</div>
+            <div class="item-after">
+              {{#if installed}}
+                Installed
+              {{else}}
+                Not Installed
+              {{/if}}
+            </div>
+          </div>
+          <div class="item-text">
+            {{summary}}
+          </div>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+  {{else}}
+  <div class="no-data">
+    <h2>{{t "addons.no_addons" defaultValue="No addons to display"}}</h2>
+    <p>{{t "addons.no_addons_hint" defaultValue="Try installing and using some addons"}}</p>
+  </div>
+  {{/if_any}}
+</script>
+
+<script id="addonPermissionsTemplate" type="text/template">
+  {{#each this}}
+  <div class="content-block-title">{{name}}</div>
+  <div class="list-block tag-select" data-searchbar="true" data-page-title="{{name}}" data-permission-id="{{id}}">
+    <ul>
+      <li class="tag-search">
+        <a href="#" class="item-link">
+          <select multiple></select>
+          <div class="item-content">
+            <div class="item-media"><i class="material-icons md-36">search</i></div>
+            <div class="item-inner">
+              <div class="item-title">{{t "common.search_users_roles_locations_tags" defaultValue="Search Users, Roles, Locations and Tags"}}</div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  {{/each}}
+</script>
+
+<script id="addonDetailsTemplate" type="text/template">
+  <div class="page-content addon-details">
+    <div class="content-block topset text-center">
+      <div class="addon-icon">
+        {{#if icon_url}}
+          <img class="icon" src="{{icon_url}}" />
+        {{/if}}
+      </div>
+      <h3 class="addon-title">{{title}}</h3>
+      {{#if developer_name}}
+      <div class="addon-developer">{{t "word.by" defaultValue="by"}} {{developer_name}}</div>
+      {{/if}}
+    </div>
+
+    <!-- User Permissions -->
+    <!-- {{#if installed}}
+    {{#if installed}} -->
+    <!-- <form id="addon-permissions-form">
+      <div class="content-block-title">Manager Rights</div>
+      <div class="list-block tag-select" data-searchbar="true" data-page-title="Manager Rights">
+        <ul>
+          <li class="tag-search">
+            <a href="#" class="item-link">
+              <select multiple></select>
+              <div class="item-content">
+                <div class="item-media"><i class="material-icons md-36">search</i></div>
+                <div class="item-inner">
+                  <div class="item-title">Search Users, Roles, Locations and Tags</div>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </form> -->
+    <div data-template="addonPermissionsTemplate"></div>
+    <!-- {{/if}}
+    {{/if}} -->
+
+    {{#if description}}
+    <div class="content-block-title centered-title"><span>{{t "label.description" defaultValue="Description"}}</span></div>
+    <div class="content-block">
+      <div class="content-block-inner">
+        {{description}}
+      </div>
+    </div>
+    {{/if}}
+
+    <div class="content-block-title centered-title"><span>{{t "label.information" defaultValue="Information"}}</span></div>
+    <div class="content-block">
+      <div class="content-block-inner zerba">
+        {{#if developer_name}}
+        <div class="row">
+          <div class="col-50 align-right">{{t "label.developer" defaultValue="Developer"}}</div>
+          <div class="col-50">{{developer_name}}</div>
+        </div>
+        {{/if}}
+        {{#if homepage}}
+        <div class="row">
+          <div class="col-50 align-right">{{t "label.homepage" defaultValue="Homepage"}}</div>
+          <div class="col-50">{{homepage}}</div>
+        </div>
+        {{/if}}
+        {{#if default}}
+        <div class="row">
+          <div class="col-50 align-right">{{t "label.default" defaultValue="Default"}}</div>
+          <div class="col-50">Yes</div>
+        </div>
+        {{/if}}
+        <div class="row">
+          <div class="col-50 align-right">{{t "label.private" defaultValue="Private"}}</div>
+          <div class="col-50">{{#if private}}Yes{{else}}No{{/if}}</div>
+        </div>
+      </div>
+    </div>
+
+    {{#if_any dependencies}}
+    <div class="content-block-title centered-title"><span>{{t "label.required_addons" defaultValue="Required Addons"}}</span></div>
+    <div class="content-block required-addons">
+      <div class="content-block-inner">
+        <!-- <h3>Required Addons</h3> -->
+        {{#each dependencies}}
+          <div class="row">
+            <div class="col-50 col-left align-right">
+            {{#if icon_url}}
+              <img class="icon icon-24" src="{{icon_url}}" />
+            {{/if}}
+            </div>
+            <div class="col-50 col-right">{{name}} ({{version}})</div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if_any}}
+
+    {{#if default}}
+    {{else}}
+    <div class="content-block-title centered-title"><span>{{t "label.menu" defaultValue="Menu"}}</span></div>
+    <div class="list-block stacked">
+      <ul>
+      {{#if installed}}
+        <li><a href="#" id="addon-uninstall" class="list-button item-link">{{t "label.uninstall" defaultValue="Uninstall"}}</a></li>
+      {{else}}
+        <li><a href="#" id="addon-install" class="list-button item-link">{{t "label.install" defaultValue="Install"}}</a></li>
+      {{/if}}
+      </ul>
+    </div>
+    {{/if}}
+  </div>
+</script>

@@ -1,0 +1,14 @@
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="#" class="back link icon-only"><i class="material-icons md-36">keyboard_arrow_left</i></a></div>
+    <div class="center sliding">{{t "action_details.title" defaultValue="Action Details"}}</div>
+    <div class="right">
+      <a class="link icon-only hide" href="views/action-settings.html?action_id={{url_query.action_id}}"><i class="material-icons">settings</i></a>
+      <a class="link icon-only do-action-install hide" href="#"><i class="material-icons">get_app</i></a>
+    </div>
+  </div>
+</div>
+<div class="pages navbar-through">
+  <div data-page="action-details" class="page" id="action-details" data-template="actionDetialsTemplate">
+  </div>
+</div>

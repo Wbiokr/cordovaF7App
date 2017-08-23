@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple WebRTC Native Recording Demo</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="symple.player.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<!--     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
+
+    <script type="text/javascript" src="symple.js"></script>
+    <script type="text/javascript" src="symple.client.js"></script>
+    <script type="text/javascript" src="symple.player.js"></script>
+    <script type="text/javascript" src="symple.player.webrtc.js"></script>
+    <script type="text/javascript" src="main.js"></script> -->
+
+    <style>
+    #tommy-chat {
+	    /*bottom:0;*/
+	    /*right: 20px;*/
+	    /*position:fixed;*/
+	    /*float:right;*/
+	    /*margin-left:10px;*/
+	    /*height: 80%;*/
+	}
+
+    #tommy-chat.hidden iframe {
+    	/*top: 80%;*/
+    	opacity: 0;
+    }
+
+    #tommy-chat iframe {
+	    /*position:relative;*/
+	  	/*position: absolute;*/
+	    position:fixed;
+	  	bottom: 95px;
+	  	right: 20px;
+	  	/*top: 0;*/
+	  	/*left: 0;*/
+	    width: 400px;
+   		/*width: 100%;*/
+    	height: 75%; 	
+	  	transition:.3s;  
+	  	height:;
+	  	box-shadow: 0 3px 40px rgba(0,0,0,0.16);
+
+    }
+
+    #tommy-chat.hidden iframe {
+    	/*top: 80%;*/
+    	opacity: 0;
+    }
+
+	.fab {
+	  /*background-color:#F44336;*/
+	  /*position:fixed;*/
+	  position: absolute;
+	  bottom: 20px;
+	  right: 20px;
+	  width: 60px;
+	  height: 60px;
+	  float: right;
+	  border-radius:100%;
+	  /*background:#F44336;*/
+	  background-color: #F1823A;
+	  border:none;
+	  outline:none !important;
+	  color:#fff;
+	  font-size:36px;
+	  box-shadow: 0 1px 6px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23);
+	  transition:.3s;  
+	  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	  transform: scale(1.1);
+	  transform: rotate(45deg);
+	  -ms-transform: rotate(45deg);
+	  -webkit-transform: rotate(45deg);
+	}
+
+	.fab:hover {
+	  outline:none;
+	  box-shadow: 0 1px 36px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23);
+	}
+
+
+	.fab:focus {
+	  outline:none;
+	}
+
+	/*.fab:focus/*/
+    #tommy-chat.hidden .fab {
+
+	  transform: scale(1);
+	  transform: none;
+	  -ms-transform: none;
+	  -webkit-transform: none;
+	}
+
+    </style>
+
+    <script>
+    $(document).ready(function(){
+	    $("#tommy-chat .fab").click(function() {
+		  $("#tommy-chat").toggleClass('hidden');
+		});
+	});
+
+    </script>
+  </head>
+  <body>
+	<div id="tommy-chat">
+	  <iframe src="/proxy.html?page=views/chat-embed.html" frameborder="0" allowfullscreen></iframe>
+	  <button class="fab">+</button>
+	</div>
+    <div class="container">
+      <!--   
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Hey there!</strong> This client created a WebRTC video feed that will be recorded by the <code>webrtcrecorder</code> sample.
+      </div>
+      -->
+	  <!--       
+	  <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              Logs
+            </div>
+            <div class="card-block">
+              <pre id="webrtc-logs"></pre>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </body>
+</html>

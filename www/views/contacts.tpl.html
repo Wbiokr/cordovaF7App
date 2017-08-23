@@ -1,0 +1,73 @@
+<script id="contactRequestsListTemplate" type="text/template">
+  {{#if_any this}}
+  <div class="content-block-title"><span>{{t "label.recent" defaultValue="Recent"}}</span></div>
+  <div class="invitations-list list-block media-list no-margin no-border-top">
+    <!-- no-dividers -->
+    <ul>
+      {{#each this}}
+      <li data-invitation-id="{{id}}">
+        <!-- Sent Invitations -->
+        {{#if_compare user_id "==" @global.user.id}}
+        <div class="item-content">
+          <div class="item-media">
+            {{circleAvatar invitee}}
+          </div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">{{invitee.name}}</div>
+              <div class="item-after">{{status}}</div>
+            </div>
+            <div class="item-text">{{invitee.type}}</div>
+          </div>
+        </div>
+        <!-- Received Invitations -->
+        {{else}}
+          <!-- Pending Approval -->
+          {{#if_contains status "pending,requested"}}
+          <a href="views/add-contacts-approve.html?token={{token}}" data-invitation-token="{{token}}" class="item-link item-content approve-contact">
+            <div class="item-media">
+              {{circleAvatar inviter}}
+            </div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">{{inviter.name}}</div>
+                <div class="item-after">+</div>
+              </div>
+              <div class="item-text">{{inviter.type}}</div>
+            </div>
+          </a>
+          <!-- Approved -->
+          {{else}}
+          <div class="item-content">
+            <div class="item-media">
+              {{circleAvatar inviter}}
+            </div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">{{inviter.name}}</div>
+                <div class="item-after">{{status}}</div>
+              </div>
+              <div class="item-text">{{inviter.type}}</div>
+            </div>
+          </div>
+          {{/if_contains}}
+        {{/if_compare}}
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  {{/if_any}}
+</script>
+
+<script id="modalContactsApproveTemplate" type="text/template">
+  <div class="contact-approve-modal">
+    <div class="title-block">
+      <div class="left-block">{{circleAvatar inviter}}</div>
+      <div class="modal-title">{{inviter.name}}</div>
+      <div class="modal-subtitle">{{t "contacts.requests_to_be_contact" defaultValue="requests to be a contact"}}</div>
+    </div>
+    <!-- <p>{{t "contacts.add_to_account" defaultValue="Add Contact to the following Account"}}:</p>
+    <div class="teams-block">
+    </div> -->
+  </div>
+</script>

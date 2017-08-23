@@ -1,0 +1,13 @@
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="#" class="back link icon-only"><i class="material-icons md-36">keyboard_arrow_left</i></a></div>
+    <div class="center sliding">{{t "label.edit" defaultValue="Edit"}} {{url_query.first_name}} {{url_query.last_name}}</div>
+    <div class="right"><a href="#" class="link" data-submit="#team-member-edit-form">{{t "label.save" defaultValue="Save"}}</a></div>
+  </div>
+</div>
+
+<div class="pages navbar-through">
+  <div data-page="team-member-edit" class="page" id="team-member-edit">
+    <div class="page-content" data-template="teamMemberProfileEditFormTemplate"></div>
+  </div>
+</div>

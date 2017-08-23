@@ -1,0 +1,305 @@
+<script id="chatListTemplate" type="text/template">
+  {{#if_any this}}
+  <div class="content-block-title centered-title"><span>{{t "label.recent" defaultValue="Recent"}}</span></div>
+  <div class="chat-list list-block media-list no-margin no-border-top">
+    <!-- no-dividers -->
+    <ul>
+      {{#each this}}
+      <li class="swipeout" data-chat-id="{{chat_id}}">
+        <a href="views/chat-view.html?chat_id={{chat_id}}&icon_url={{sender_icon_url}}&title={{chat_title}}" class="item-link item-content swipeout-content">
+          <div class="item-media">
+            {{circleAvatar this}}
+            <!-- <img src="{{sender_icon_url}}" class="circle"> -->
+          </div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <!-- style="padding-top:11px; background:none;"  -->
+              <div class="item-title">
+                {{#if chat_title}}
+                  {{chat_title}}
+                {{else}}
+                  {{#if sender_first_name}}
+                    {{sender_first_name}} {{sender_last_name}}
+                  {{else}}
+                    Tommy
+                  {{/if}}
+                {{/if}}
+              </div>
+              <div class="item-after time">{{fromnow created_at}}</div>
+            </div>
+            <div class="item-text"><!-- truncateChatMessage-->{{message}}</div>
+          </div>
+        </a>
+        <div class="swipeout-actions-right">
+          <a class="swipeout bg-red remove-btn" href="#" data-id="{{user_id}}"><span class="lnr lnr-cross"></span></a>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  {{else}}
+  <div class="content-block no-data">
+    <h2>{{t "chat.no_messages" defaultValue="No messages to display"}}</h2>
+    <p>{{t "chat.no_messages_hint" defaultValue="Try inviting some friends to chat with"}}</p>
+  </div>
+  {{/if_any}}
+</script>
+
+<!-- TODO: Use as partial inside chatListTemplate -->
+<script id="chatListItemTemplate" type="text/template">
+  <li class="swipeout" data-chat-id="{{chat_id}}">
+    <a href="views/chat-view.html?chat_id={{chat_id}}&icon_url={{sender_icon_url}}&title={{chat_title}}" class="item-link item-content swipeout-content">
+      <div class="item-media">
+        {{circleAvatar this}}
+      </div>
+      <div class="item-inner">
+        <div class="item-title-row">
+          <div class="item-title">
+            {{#if chat_title}}
+              {{chat_title}}
+            {{else}}
+              {{#if sender_first_name}}
+                {{sender_first_name}} {{sender_last_name}}
+              {{else}}
+                Tommy
+              {{/if}}
+            {{/if}}
+          </div>
+          <div class="item-after time">{{fromnow created_at}}</div>
+        </div>
+        <div class="item-text"><!-- truncateChatMessage-->{{message}}</div>
+      </div>
+    </a>
+    <div class="swipeout-actions-right">
+      <a class="swipeout bg-red remove-btn" href="#" data-id="{{user_id}}"><span class="lnr lnr-cross"></span></a>
+    </div>
+  </li>
+</script>
+
+<script id="contactListTemplate" type="text/template">
+  <form data-search-list=".contacts-list" data-search-in=".item-title" class="searchbar">
+    <div class="searchbar-input">
+      <input type="search" placeholder="{{t "label.search" defaultValue="Search"}}" class="search-box">
+      <a href="#" class="searchbar-clear"></a>
+    </div>
+    <a href="#" class="searchbar-cancel" style="display: block; margin-right: -53px;"></a>
+  </form>
+  <div class="searchbar-overlay"></div>
+  <div class="searchpage">
+    <div class="searchbar-not-found no-data">
+      <h2>{{t "common.nothing_found" defaultValue="Nothing found"}}</h2></div>
+    <div class="contacts-content">
+      <div class="list-block contacts-block">
+        <div class="list-group contacts-list searchbar-found">
+          <ul>
+            {{#each this}}
+            <li class="content-block-title centered-title"><span>{{@key}}</span></li>
+            {{#each this}}
+            <li>
+              <a href="views/chat-view.html?user_ids={{friend_id}}&icon_url={{icon_url}}&title={{first_name}} {{last_name}}" class="item-link item-content">
+                <div class="item-media">
+                  {{circleAvatar this onlineBadge="true"}}
+                </div>
+                <div class="item-inner">
+                  <!-- <div class="title-staff"> -->
+                  <div class="item-title">
+                    {{first_name}} {{last_name}}
+                  </div>
+                  <div class="item-after">
+                    <!--
+                    <div data-online-state="{{user_id}}" class="badge offline"></div>
+                    -->
+                    <!--
+                    {{#if member}}
+                    {{else}}
+                      Invite
+                    {{/if}} -->
+                    <!--
+                    {{#if mobile}}
+                      , SMS{{#if email}},{{/if}}
+                    {{if}}
+                    {{#if email}}
+                      Email
+                    {{/if}}
+                    -->
+                  </div>
+                  <!-- </div> -->
+                </div>
+              </a>
+            </li>
+            {{/each}} {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="chatDetailsTemplate" type="text/template">
+  <div class="list-block no-margin no-border-top">
+    <ul>
+      {{#each this}} {{#if_compare id "!=" @global.user.id}}
+      <li>
+        {{#if @global.team}}
+        <a href="views/team-member-details.html?user_id={{user_id}}&first_name={{first_name}}&last_name={{last_name}}" class="item-link item-content">
+        {{else}}
+        <a href="views/contact-details.html?user_id={{friend_id}}&first_name={{first_name}}&last_name={{last_name}}" class="item-link item-content">
+        {{/if}}
+          <div class="item-media">
+            {{circleAvatar this onlineBadge="true"}}
+          </div>
+          <div class="item-inner">
+            <div class="item-title">{{first_name}} {{last_name}}</div>
+          </div>
+        </a>
+      </li>
+      {{else}}
+      <li class="item-content">
+        <div class="item-media">
+          {{circleAvatar this}}
+        </div>
+        <div class="item-inner">
+          <div class="item-title">{{first_name}} {{last_name}}</div>
+        </div>
+      </li>
+      {{/if_compare}} {{/each}}
+    </ul>
+  </div>
+</script>
+
+<script id="contactDetailsTemplate" type="text/template">
+  <div data-template="profileHeaderTemplate"></div>
+  <form id="contact-form">
+    <div class="list-block topset">
+      <ul>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.first" defaultValue="First"}}</div>
+              <div class="item-input">{{first_name}}</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.last" defaultValue="Last"}}</div>
+              <div class="item-input">{{last_name}}</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.mute_notifications" defaultValue="Mute Notifications"}}</div>
+              <div class="item-input">
+                <label class="label-switch rightradio">
+                  <input type="hidden" name="mute" value="false">
+                  <input type="checkbox" name="mute" value="true" {{#if mute}} checked="checked" {{/if}}>
+                  <div class="checkbox"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">{{t "label.add_to_favorites" defaultValue="Add to Favorites"}}</div>
+              <div class="item-input">
+                <label class="label-switch rightradio">
+                  <input type="hidden" name="favorite" value="false">
+                  <input type="checkbox" name="favorite" value="true" {{#if favorite}} checked="checked" {{/if}}>
+                  <div class="checkbox"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </form>
+</script>
+
+<script id="popupChatContactsTemplate" type="text/template">
+  <div class="popup">
+    <div class="pages">
+      <div class="page no-navbar">
+        <div class="page-content">
+          <div class="navbar onpage">
+            <div class="navbar-inner">
+              <div class="left"><a href="#" class="close-popup link close-contact-select">Cancel</a></div>
+              <div class="center sliding">{{t "contacts.title" defaultValue="Contacts"}}</div>
+              <div class="right"><a href="#" class="link icon-only done-select-contact">Ok</a>
+              </div>
+            </div>
+          </div>
+          <form data-search-list=".contacts-list" data-search-in=".contacts-item-title" class="searchbar contacts-searchbar">
+            <div class="search-avatars"></div>
+            <div class="searchbar-input">
+              <input type="search" placeholder="{{t "label.search" defaultValue="Search"}}" class="search-contact-pop-box">
+              <a href="#" class="searchbar-clear"></a>
+            </div>
+            <a href="#" class="searchbar-cancel">{{t "label.cancel" defaultValue="Cancel"}}</a>
+          </form>
+          <div class="searchbar-overlay"></div>
+          <!-- <div class="searchpage"> -->
+          <div class="page-content contacts-content">
+            <div class="searchbar-not-found no-data">
+              <h2>{{t "common.nothing_found" defaultValue="Nothing found"}}</h2></div>
+            <!-- no-margin no-border-top no-dividers -->
+            <div class="list-block contacts-block searchbar-found">
+              {{#each this}}
+              <div class="list-group contacts-list">
+                <!-- block contacts-list contacts-list -->
+                <ul>
+                  <li class="content-block-title centered-title"><span>{{@key}}</span></li>
+                  <!-- contact-name-cont -->
+                  {{#each this}}
+                  <li>
+                    <!-- class="contact-name-cont" -->
+                    <label class="label-checkbox item-content">
+                      <input type="checkbox" name="user_ids[]" value="{{friend_id}}" data-icon="{{icon_url}}" data-id="{{friend_id}}" data-name="{{first_name}} {{last_name}}" class="check-contact">
+                      <div class="item-media">
+                        <!-- checkbox-cont -->
+                        <i class="icon icon-form-checkbox"></i>
+                      </div>
+                      <div class="item-media">
+                        {{circleAvatar this onlineBadge="true"}}
+                      </div>
+                      <div class="item-inner">
+                        <!-- <div class="title-staff"> -->
+                        <div class="contacts-item-title item-title">
+                          {{first_name}} {{last_name}}
+                          <!-- <b class="clod contact-name"></b> -->
+                        </div>
+                        <!-- </div> -->
+                      </div>
+                    </label>
+                  </li>
+                  {{/each}}
+                </ul>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="messageTemplate" type="text/template">
+  {{#if day}}
+  <div class="messages-date hide">{{day}} {{#if time}}, <span>{{time}}</span>{{/if}}</div>
+  {{/if}}
+  <div class="message message-{{type}} {{#if hasImage}}message-pic{{/if}} {{#if team_avatar}}message-with-team_avatar{{/if}} {{#if position}}message-appear-from-{{position}}{{/if}}">
+    {{#if name}}
+    <div class="message-name">{{name}}</div>{{/if}}
+    <div class="message-text" data-id="{{id}}">{{text}}{{#if date}}
+      <div class="message-date">{{date}}</div>{{/if}}</div>
+    {{#if team_avatar}}
+    <div class="message-team_avatar" style="background-image:url({{team_avatar}})"></div>{{/if}} {{#if label}}
+    <div class="message-label">{{label}}</div>{{/if}}
+  </div>
+</script>

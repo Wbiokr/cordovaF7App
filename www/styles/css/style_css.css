@@ -1,0 +1,584 @@
+/*html.ios-gt-8 .list-block li.media-item .item-title,
+html.ios-gt-8 .list-block.media-list .item-title {
+    font-weight: 500;
+}
+html.ios-gt-8 .navbar .center {
+    font-weight: 500;
+}
+html.ios-gt-8 .contacts-block .list-group-title {
+    font-weight: 500;
+}*/
+
+/*
+	Generic Icon Menu
+*/
+
+.menu {
+}
+.menu.menu-border {
+	border-top: 1px solid #D9D9D9;
+}
+.menu .menu-title {
+	padding: 10px 15px 0;
+	font-size: 12px;
+	color: #777;
+}
+.menu ul {
+	margin: 0;
+	padding: 0;
+}
+.menu li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}
+.menu li a {
+	color: #333;
+	font-size: 11px;
+	padding: 0 0 15px;
+	display: block;
+}
+.menu li img {
+	width: 45px;
+	/*border-radius: 50%;*/
+}
+
+.menu-vertical li {
+	width: 50%;
+	float: left;
+}
+
+.menu-horizontal .menu-block {
+	overflow: auto;
+}
+.menu-horizontal ul {
+	white-space: nowrap;
+	list-style: none;
+	/*padding-left: 15px;*/
+	padding-left: 10px;
+}
+.menu-horizontal li {
+	display: inline-block;
+}
+.menu-horizontal li a {
+	/*padding: 10px 10px 7px 10px;	*/
+  padding: 15px 10px 15px 10px;
+
+}
+
+/*
+	Side Panel
+*/
+
+body.panel-open .panel-overlay {
+	opacity: 1;
+	background-color: rgba(0, 0, 0, 0.50);
+}
+
+.panel {
+	background: #f5f5f5;
+}
+
+
+/*
+  Main Menu
+*/
+#main-menu {
+}
+
+/*
+  Main Menu Account
+*/
+
+#main-menu-account {
+	/*border-bottom: 1px solid #c8c7cc;*/
+	position: relative;
+	margin: 0;
+	padding: 15px;
+	height: 125px;
+	box-sizing: border-box;
+	background-image: url(../../images/MenuBackgroundWithShadow.png);
+	background-size: cover;
+	color: #fff;
+	/*margin-top: 10px;*/
+}
+#main-menu-account .avatar-circle {
+	/*float: left;*/
+	/*min-height: 45px;*/
+	/*width: 50px;*/
+	/*height: 50px;*/
+	margin-bottom: 10px;
+	/*background: rgba(255, 255, 255, 0.5);*/
+	/*-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;*/
+	/*border-radius: 50%;*/
+	/*border: 1px solid #fff;*/
+}
+#main-menu-account .account-title {
+	text-transform: uppercase;
+	font-size: 12px;
+  padding-top: 0px;
+  letter-spacing: 0;
+  /*font-weight: 300;*/
+}
+#main-menu-account .account-name {
+	/*float: left;*/
+  /*padding-top: 5px;*/
+  font-size: 15px;
+  font-weight: 500;
+  /*margin-left: 8px;*/
+  /*max-width: 190px;*/
+	/*white-space: nowrap;*/
+	/*position: relative;*/
+	/*break-after: initial;*/
+}
+
+/*letter-spacing: .5px;*/
+/*#main-menu-account .homeheader-left.top-menu {
+}*/
+
+#main-menu-account .open-account-dropdown {
+	position: absolute;
+	bottom: 0px;
+	right: 15px;
+	text-align: center;
+}
+
+#main-menu-account .open-account-dropdown span {
+	display: block;
+	font-size: 9px;
+	margin-bottom: -6px;
+}
+
+/*
+  Main Menu Accounts List
+*/
+
+#main-menu-account-list {
+	display: none;
+	background: #424242;
+	/*border: 1px solid transparent;*/
+	box-sizing: border-box;
+}
+
+#main-menu-account-list.active {
+	display: block;
+}
+
+
+#main-menu-account-list ul {
+	margin: 0;
+	padding: 0;
+  border: 1px solid transparent;
+}
+#main-menu-account-list li {
+	margin: 15px 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#main-menu-account-list li a {
+	height: 48px;
+	padding: 0px 15px;
+	display: block;
+}
+
+#main-menu-account-list li .avatar-circle {
+	/*width: 48px;*/
+	/*border-radius: 50%;*/
+	/*background: rgba(255, 255, 255, 0.5);*/
+	margin-right: 15px;
+	float: left;
+}
+
+#main-menu-account-list li a .account-name {
+	color: #fff;
+	font-size: 14px;
+	margin: 0 0 3px;
+  padding-top: 5px;
+}
+#main-menu-account-list li a .account-title {
+	color: #999;
+	font-size: 11px;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+
+
+
+
+
+
+#top-account-menu-dropdown {
+	position: absolute;
+	left: 10px;
+	top: 60px;
+	width: 260px;
+	background-color: #fff;
+	transition: all 0.25s ease-out;
+	transform: scale(0);
+	transform-origin: 0 0;
+	-webkit-transition: all 0.25s ease-out;
+	-webkit-transform: scale(0);
+	-webkit-transform-origin: 0 0;
+	-moz-transition: all 0.25s ease-out;
+	-moz-transform: scale(0);
+	-moz-transform-origin: 0 0;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  /*padding: 0 10px;*/
+	margin: 0;
+	padding: 0;
+}
+#top-account-menu-dropdown:hover ul {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+}
+#top-account-menu-dropdown.active {
+	transform: scale(1);
+	transition: all 0.25s cubic-bezier(0.5, 1.8, 0.9, 0.8);
+	-webkit-transform: scale(1);
+	-webkit-transition: all 0.25s cubic-bezier(0.5, 1.8, 0.9, 0.8);
+	-moz-transform: scale(1);
+	-moz-transition: all 0.25s cubic-bezier(0.5, 1.8, 0.9, 0.8);
+	/*padding: 0 10px;*/
+}
+#top-account-menu-dropdown ul {
+	margin: 0;
+	padding: 0;
+}
+#top-account-menu-dropdown ul li {
+	/*display: inline-block;*/
+	/*width: 100%;*/
+	margin: 0;
+	padding: 0;
+}
+
+#top-account-menu-dropdown-icon {
+  font-size: 18px;
+  margin: 8px 4px;
+}
+/*#top-account-menu-dropdown div,
+#top-account-menu-dropdown li,
+#top-account-menu-dropdown a,
+#top-account-menu-dropdown p {margin: 0;padding:0;}*/
+/*#top-account-menu-dropdown ul,
+#top-account-menu-dropdown li {margin: 0;padding:0;}*/
+
+#top-account-menu-dropdown a.item {
+	display: block;
+  /*width: 100%;*/
+	min-height: 45px;
+  padding: 5px;
+	color: #666;
+}
+#top-account-menu-dropdown a.item:hover {background-color: #eee;}
+/*#top-account-menu-dropdown ul.item li {background-color: #fff;}*/
+#top-account-menu-dropdown a.item img {float: left;}
+/*#top-account-menu-dropdown a.item div {float: left; margin-top: 5px; }*/
+
+#top-account-menu-dropdown > li {
+    border-bottom: 1px solid #ddd;
+    margin: 10px 0;
+    margin-top:0;
+
+}
+#top-account-menu-dropdown ul > li a {
+    /*font-size: 14px;
+		font-weight: 300;*/
+}
+/*#top-account-menu-dropdown div > ul {padding: 0;margin: 0;}*/
+#top-account-menu-dropdown ul > li ul {margin: 0;padding: 0}
+/*#top-account-menu-dropdown ul > li ul li a {padding: 5px;margin: 0}*/
+
+#top-account-menu-dropdown div ul.drop-list > li {border-bottom: 1px solid #eee; padding: 10px;}
+/*#top-account-menu-dropdown div ul > li ul li a div { margin-left: 10px;}*/
+
+/*#top-account-menu-dropdown div ul > li a {margin: 2px;}*/
+
+/*#top-account-menu-dropdown div ul > li ul.item li {margin: 0;}*/
+
+#top-account-menu-dropdown .title { margin: 0; font-size: 15px;}
+
+#top-account-menu-dropdown li a p.name {font-weight: bold; max-width: 200px; margin: 5px 0 0;}
+#top-account-menu-dropdown li a p.subtitle {font-weight: normal;}
+
+
+.alert-info {
+	background: rgb(217, 235, 239);
+}
+
+
+
+/*login screen*/
+/*.loginlogo > img {
+	width: 175px;
+}
+.splashlogo > img {
+	position: fixed;
+	top: 50%;
+	left: 50%;  bring your own prefixes
+	transform: translate(-50%, -50%);
+}
+
+.swipe-up.popre {
+	color: #fff;
+	display: block;
+	font-size: 14px;
+	text-align: center;
+}
+.login-screen-content {
+	background: none repeat scroll 0 0 #ff9502;
+}*/
+/*.list-block .item-inner.nob::after {
+	content: none;
+}*/
+/*.link-up {
+	display: block;
+	margin: 0 auto;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+.link-up > a {
+	text-align: center;
+	display: block;
+	margin: 16px;
+}
+.imgC > img {
+	display: block;
+	margin: 0 auto;
+	width: 275px;
+}
+.infinite-scroll.padding-none.swipecase {
+	height: 85%;
+}
+#step1, #step2 {
+	margin-top: 20px;
+}
+.xsubtits {
+	font-size: 12px;
+	font-weight: 400;
+	margin: 2px 0 0;
+}
+#standardplan {
+	display: none;
+}
+#starterplan {
+	display: none;
+}
+.showHid {
+	opacity: 1;
+}*/
+
+/*end of login screen*/
+
+/*images/MobileBackground1125x2000.png*/
+
+
+/*
+  Messages Widget
+*/
+.messages {
+	padding-top: 20px;
+}
+.message-received.message-with-avatar .message-text {
+	margin-left: 56px;
+}
+.messages-date {
+	background-color: none;
+	border-radius: 5px;
+	color: #bbb;
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1;
+	margin: 6px 99px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	text-align: center;
+}
+.message-name, .messages-date {
+	opacity: 0;
+	height: 0;
+	padding-bottom: 0;
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+/*#chat- .messages-date {
+	opacity: 1;
+	height: auto;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	margin: 6px 99px;
+}*/
+.message-name.show, .messages-date.show {
+	transition: opacity 2s ease;
+	opacity: 1;
+	height: auto;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	margin: 6px 99px;
+}
+.message-name.hide, .messages-date.hide {
+	transition: opacity 2s ease;
+	opacity: 0;
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 0;
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+/*.message {
+	max-width: 100%;
+}
+.with-avatar {
+	margin-bottom: 10px;
+}*/
+.message-received.message-with-avatar .message-name {
+	margin-bottom: 4px;
+	margin-left: 58px;
+}
+/*.list-block .item-media + .item-inner {
+	margin-left: 0px;
+}*/
+/*.link.togst {
+	width: 31px !important;
+}*/
+/*.send {
+	font-size: 15px;
+	font-weight: 500;
+	width: 44px;
+	margin: 0 auto;
+}*/
+.message-sent .message-text {
+	background-color: #007aff !important;
+}
+.message {
+	max-width: 90%;
+}
+.message-button {
+	padding: 10px 0 2px;
+}
+.message-button a {
+	font-size: 12px;
+}
+.message-sent.message-last .message-text, .message-sent.message-with-tail .message-text {
+	margin-right: 53px;
+}
+.message .message-text {
+	border-radius: 11px;
+	min-width: 40px;
+	min-height: 14px;
+	font-size: 14px;
+	line-height: 1;
+	word-break: break-word;
+}
+.message-sent.message-last .message-text, .message-sent.message-with-tail .message-text {
+	margin-right: 37px;
+
+}
+.message-received.message-with-avatar .message-text {
+	margin-left: 37px;
+}
+.message-avatar {
+	width: 36px;
+	height: 36px;
+	margin-top: -20px;
+}
+.message-last {
+	margin-bottom: 2px;
+}
+.message-received .message-text {
+  letter-spacing: .4px;
+  background-color: #f4f4f8;
+}
+.message .message-text {
+  line-height: 1.6em;
+  letter-spacing: .4px;
+}
+
+
+/*
+  Contacts List / Popup
+*/
+
+.search-avatars {
+	position: absolute;
+	left: 25px;
+	z-index: 99;
+	top: 12px;
+}
+.search-avatars img {
+	width: 20px;
+	margin: 0 2px;
+}
+.contacts-list .icon-form-checkbox {
+  margin-right: 10px;
+}
+
+/*
+  Profile Headers
+*/
+
+.profile-header {
+  margin: 0;
+  padding: 0;
+}
+.profile-header-cover {
+  background-image: url(../../images/MobileBackgroundBlurred.png);
+	background-position: center center;
+	background-size: 100% auto;
+}
+.profile-header-cover a {
+	color: #fff !important;
+	position: inherit;
+	z-index: 1;
+}
+.profile-header-cover .item-link.list-button {
+	padding: 30px 30px 25px;
+}
+.profile-header-cover h3 {
+	font-weight: 400;    
+	margin: 10px 0 0;
+  line-height: initial;
+}
+.profile-header-cover .avatar-circle {
+	background-position: center center;
+	background-size: cover;
+	border: 1px solid #ffffff;
+	border-radius: 50%;
+	margin: 0 auto 5px;
+	height: 100px;
+	width: 100px;
+  line-height: 100px;
+}
+.profile-header-cover .avatar-circle .initials {
+	font-size: 36px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  padding-left: 5px;
+}
+.profile-header-cover .overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 0;
+}
+
+html:not(.watch-active-state) .list-block .profile-header-cover .item-link:active, 
+.list-block .profile-header-cover .item-link.active-state {
+	-webkit-transition-duration: 0ms;
+	transition-duration: 0ms;
+	background: rgba(230, 126, 34, 0.5);
+}

@@ -1,0 +1,82 @@
+.action-list .action-icons {
+	margin: 0.5rem 0;
+}
+
+.action-list .action-icons .icon {
+	display: inline-block;
+	vertical-align: top;
+	width: 24px;
+	height: 24px;
+	font-size: 24px;
+	margin: 0 5px;
+}
+
+.action-list .action-icons .icon:first-of-type {
+	margin-left: 0;
+}
+
+.action-list .action-icons .plus {
+	display: inline-block;
+	vertical-align: top;
+  font-size: 20px;
+	line-height: 24px;
+	color: #aaa;
+}
+
+.action-list .action-icons .plus:first-child {
+	display: none;
+}
+
+
+#action-details .action-icons {
+	margin: 20px 0 0;
+}
+
+#action-details .action-icons .icon {
+	display: inline-block;
+	vertical-align: top;
+	width: 50px;
+	height: 50px;
+	/*font-size: 42px;*/
+	/*border-radius: 50%;*/
+	/*border: 3px solid #fff;*/
+	margin: 10px 10px;
+	/*background: white;*/
+	/*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);*/
+}
+
+#action-details .action-icons .plus {
+	display: inline-block;
+	vertical-align: top;
+  font-size: 32px;
+	line-height: 50px;
+	margin: 10px 0;
+	color: #F1823A;
+}
+
+#action-details .action-icons .plus:first-child {
+	display: none;
+}
+
+#action-details .action-title {
+	color: #333;
+	font-size: 18px;
+  font-weight: 500;
+	margin-bottom: 7px;
+}
+
+#action-details .action-summary {
+	color: #999;
+}
+
+/*#action-details .row:last-child {
+	margin-bottom: 1em;
+}*/
+
+#action-details .required-addons .col-left {
+	line-height: 1;
+}
+
+#action-details .required-addons .col-right {
+	line-height: 24px;
+}

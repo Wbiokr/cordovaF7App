@@ -1,0 +1,822 @@
+@import "style_css.css"
+
+/* VARIABLES */
+$iphone4-min: 320px
+$iphone4-max: 480px
+
+$iphone5-min: 320px
+$iphone5-max: 568px
+
+$iphone6-min: 375px
+$iphone6-max: 667px
+
+$iphone6plus-min: 414px
+$iphone6plus-max: 736px
+
+/* MIXINS */
+
+/* ----------- iPhone 5, 5C and 5S ----------- */
+@mixin iphone5
+  @media only screen and (min-device-width: #{$iphone5-min}) and (max-device-width: #{$iphone5-max})and (-webkit-min-device-pixel-ratio: 2)
+    @content
+
+/* ----------- iPhone 6 ----------- */
+@mixin iphone6
+  @media only screen and (min-device-width: #{$iphone6-min}) and (max-device-width: #{$iphone6-max}) and (-webkit-min-device-pixel-ratio: 2)
+    @content
+
+/* ----------- iPhone 6+ ----------- */
+@mixin iphone6plus
+  @media only screen and (min-device-width: #{$iphone6plus-min}) and (max-device-width: #{$iphone6plus-max}) and (-webkit-min-device-pixel-ratio: 3)
+    @content
+
+/* -------------------------- */
+
+
+// Onboarding pages
+
+.splash-page
+  background-image: url(../../images/MobileBackgroundBlurred.png)
+  background-size: cover
+  font-size: 90%
+
+  @include iphone6
+    font-size: 100%
+
+  .swiper-slide-active .ballons
+    -moz-animation-name: animateBallons
+    -moz-animation-iteration-count: 1
+    -moz-animation-timing-function: ease-in-out
+    -moz-animation-duration: 1s
+
+    -webkit-animation-name: animateBallons
+    -webkit-animation-iteration-count: 1
+    -webkit-animation-timing-function: ease-in-out
+    -webkit-animation-duration: 1s
+
+    animation-name: animateBallons
+    animation-iteration-count: 1
+    animation-timing-function: ease-in-out
+    animation-duration: 1s
+
+  .ballons
+    position: absolute
+    height: 250px
+    width: 100%
+    z-index: 0
+    bottom: 60px
+    @include iphone6
+      bottom: 120px
+
+    @include iphone5
+      @-webkit-keyframes animateBallons
+        0%
+          opacity: 0
+          bottom: 30px
+        100%
+          opacity: 1
+          bottom: 60px
+      @-moz-keyframes animateBallons
+        0%
+          opacity: 0
+          bottom: 30px
+        100%
+          opacity: 1
+          bottom: 60px
+      @-o-keyframes animateBallons
+        0%
+          opacity: 0
+          bottom: 30px
+        100%
+          opacity: 1
+          bottom: 60px
+      @keyframes animateBallons
+        0%
+          opacity: 0
+          bottom: 30px
+        100%
+          opacity: 1
+          bottom: 60px
+
+    @include iphone6
+      @-webkit-keyframes animateBallons
+        0%
+          opacity: 0
+          bottom: 90px
+        100%
+          opacity: 1
+          bottom: 120px
+      @-moz-keyframes animateBallons
+        0%
+          opacity: 0
+          bottom: 90px
+        100%
+          opacity: 1
+          bottom: 120px
+      @-o-keyframes animateBallons
+        0%
+          opacity: 0
+          bottom: 90px
+        100%
+          opacity: 1
+          bottom: 120px
+      @keyframes animateBallons
+        0%
+          opacity: 0
+          bottom: 90px
+        100%
+          opacity: 1
+          bottom: 120px
+
+
+    .ballon
+      position: absolute
+      height: 130px
+
+      &.big
+        .icon
+          width: 50px
+          height: 50px
+        i
+          font-size: 40px
+
+      &.small
+        .icon
+          width: 30px
+          height: 30px
+        .line
+          border-right-width: 2px
+        i
+          font-size: 20px
+
+    .ballon1
+      margin-left: 0
+      .line
+        border-right-width: 4px
+        height: 200px
+
+    .ballon2
+      margin-top: 60px
+      margin-left: 18%
+      .line
+        height: 80px
+
+    .ballon3
+      margin-top: 100px
+      margin-left: 34%
+      .line
+        height: 100px
+
+    .ballon4
+      margin-left: 45%
+    .ballon5
+      margin-top: 50px
+      margin-left: 60%
+      .line
+        height: 85px
+
+    .ballon6
+      margin-top: 20px
+      margin-left: 74%
+
+    .line
+      margin-left: 46%
+      border-right: 3px dashed #f58048
+      margin-top: 0
+      height: 130px
+      display: block
+      width: 1px
+
+    .icon
+      display: block
+      width: 40px
+      height: 40px
+      padding: 2px
+      background-color: #f58048
+      text-align: center
+      border-radius: 50px
+
+      i
+        margin-top: 5px
+        color: #fff
+        font-size: 30px
+
+  .slider-header
+    background-color: rgba(0, 0, 0, 0.5)
+    padding: 10px
+    position: relative
+    margin-bottom: 30px
+    min-height: 43px
+
+    @include iphone6
+      min-height: 55px
+
+    &:after
+      content: ""
+      position: absolute
+      top: 100%
+      left: 50%
+      margin-left: -15px
+      width: 0
+      height: 0
+      background-color: transparent !important
+      border-top: solid 15px rgba(0, 0, 0, 0.5)
+      border-left: solid 15px transparent
+      border-right: solid 15px transparent
+
+    .logo-slider-header
+      width: auto
+      max-height: 43px
+      margin-right: 13px
+
+      @include iphone6
+        margin-right: 15px
+        max-height: 55px
+
+  .logo-slider-header
+    width: 100%
+    float: left
+
+  .tommytext-slider-header
+    max-width: 80px
+    margin-top: 3px
+
+    @include iphone6
+      margin-top: 5px
+      max-width: 80px
+
+  .slider-header-heading
+    color: rgba(255, 255, 255, 0.85)
+    font-size: 20px
+    font-weight: 300
+    line-height: 75%
+
+    @include iphone6
+      line-height: 80%
+      font-size: 23px
+
+  .arrow-next
+    position: absolute
+    right: 0
+    top: 50%
+    margin-top: -23px
+
+    i
+      font-size: 45px
+      color: rgba(255, 255, 255, 0.75)
+
+  .arrow-down
+    height: 1px
+    position: relative
+    margin: -5px 0 15px 0
+
+    &:before
+      content: ""
+      position: absolute
+      top: 0
+      left: 50%
+      margin-left: -7px
+      width: 0
+      height: 0
+      background-color: transparent !important
+      border-top: solid 7px rgba(0, 0, 0, 0.5)
+      border-left: solid 7px transparent
+      border-right: solid 7px transparent
+
+  .bubble
+    padding: 7px
+    background-color: #fff
+    color: #333
+    border: 1px solid #f58048
+    border-radius: 7px
+    margin: 10px 0
+    margin-bottom: 15px
+    position: relative
+    min-height: 10px
+    z-index: 2
+
+    @include iphone6
+      padding: 10px
+      margin: 10px
+      margin-bottom: 15px
+
+
+    &.round
+      border-radius: 30px
+
+      &:first-child
+        &:before, &:after
+          display: none
+
+    &:first-child
+
+      &:before
+        content: ""
+        position: absolute
+        top: 50%
+        left: -8px
+        margin-top: -8px
+        width: 0
+        height: 0
+        background-color: transparent !important
+        border-right: solid 8px #f58048
+        border-top: solid 8px transparent
+        border-bottom: solid 8px transparent
+
+      &:after
+        content: ""
+        position: absolute
+        top: 50%
+        left: -7px
+        margin-top: -8px
+        width: 0
+        height: 0
+        background-color: transparent !important
+        border-right: solid 8px #fff
+        border-top: solid 8px transparent
+        border-bottom: solid 8px transparent
+        z-index: 2
+
+  .bubble-with-icon
+    padding: 0
+
+    &:before, &:after
+      display: none !important
+
+  .bubble-icon
+    padding: 0 10px
+    background-color: #f58048
+    text-align: center
+    max-width: 70px
+    position: absolute
+    height: 100%
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
+
+    i
+      color: #fff
+      margin-top: 4px
+
+      @include iphone6
+        margin-top: 7px
+
+  .bubble-with-icon .bubble-text
+    padding: 7px
+    margin-left: 45px
+
+    @include iphone6
+      padding: 10px
+      margin-left: 50px
+
+  .experience
+    p
+      margin: 10px 0 20px 0
+      text-align: center
+      color: #555
+      font-size: 16px
+
+      @include iphone6
+        margin-top: 20px
+
+    .icon
+      position: absolute
+      right: -10px
+      bottom: -8px
+      background-color: #f68c49
+      width: 25px
+      height: 25px
+      border-radius: 50px
+      text-align: center
+      padding: 2px
+
+      &.clear
+        background-color: #bdbac0
+
+      i
+        color: #fff
+        //position: absolute
+        //left: 0
+
+// ---
+
+.get-started-btn
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
+  width: 100%
+  text-align: center
+  z-index: 20
+
+  i
+    font-size: 35px
+    vertical-align: middle
+    margin-top: -2px
+
+    @include iphone6
+      font-size: 40px
+
+  a, button
+    padding: 15px
+    background-color: #f68c49
+    text-transform: uppercase
+    color: #fff
+    font-size: 24px
+    display: block
+    font-weight: 300
+    width: 100%
+    box-sizing: border-box
+    border: 0
+
+    @include iphone6
+      font-size: 28px
+      padding: 22px
+
+  a:hover, button:hover
+    background-color: #f38c49
+
+// SWIPER
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet
+  margin: 0 5px
+
+.swiper-pagination-bullet-active
+  opacity: 1
+  background: #007aff
+
+.swiper-pagination-bullet
+  width: 8px
+  height: 8px
+  display: inline-block
+  border-radius: 100%
+  background: #000
+  opacity: .2
+
+// .page-content
+//   font-family: 'Roboto', sans-serif
+//   text-rendering: optimizeLegibility !important
+//   -webkit-font-smoothing: antialiased !important
+
+.notific
+  text-align: center
+
+  .bubble
+    margin-left: 13%
+    margin-right: 13%
+    padding: 0
+
+    &:before
+      content: ""
+      position: absolute
+      top: -8px
+      left: 50%
+      margin-left: -8px
+      width: 0
+      height: 0
+      background-color: transparent !important
+      border-top: 0
+      border-right: solid 8px transparent
+      border-left: solid 8px transparent
+      border-bottom: solid 8px #f58048
+
+    &:after
+      content: ""
+      position: absolute
+      top: -7px
+      left: 50%
+      margin-left: -8px
+      width: 0
+      height: 0
+      background-color: transparent !important
+      border-top: 0
+      border-right: solid 8px transparent
+      border-left: solid 8px transparent
+      border-bottom: solid 8px #fff
+      z-index: 2
+
+    .bubble-text
+      padding: 15px
+      padding-bottom: 5px
+
+    strong
+      display: block
+      margin: 0 15px
+    a
+      display: block
+      padding: 10px
+      background-color: rgba(177, 243, 253, 0.5)
+      font-size: 16px
+      text-decoration: underline
+      color: #444
+      border-bottom-right-radius: 5px
+      border-bottom-left-radius: 5px
+      font-weight: bold
+
+      @include iphone6
+        font-size: 18px
+
+  .link-bottom
+    position: absolute
+    bottom: 25px
+    text-align: center
+    font-size: 17px
+    font-weight: 100
+    width: 100%
+    a
+      color: rgba(255, 255, 255, 0.8)
+
+  .logo-vertical
+    max-width: 100px
+    margin: 60px auto 25px auto
+    text-align: center
+
+    @include iphone6
+      margin-top: 90px
+
+  .tommytext-slider-header
+    width: 100% !important
+    margin-top: 10px
+
+
+
+
+
+/* Onboarding - Login pages */
+
+.login-page
+  .page-shadow
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: rgba(0, 0, 0, 0.5)
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%)
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(50%, rgba(0, 0, 0, 0.5)), color-stop(100%, rgba(0, 0, 0, 0.75)))
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%)
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%)
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%)
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 )
+
+  .logo-center-block
+    padding: 12px
+
+    .login-logo
+      width: 50px
+      float: left
+      margin-right: 10px
+
+      @include iphone6
+        width: 60px
+
+    .login-logo-text
+      margin-top: 10px
+      width: 90px
+
+      @include iphone6
+        width: 120px
+
+
+  .login-links
+    text-align: center
+    // text-shadow: 1px 0 1px #000
+    li
+      margin-bottom: 5px
+    a
+      color: white
+      text-decoration: underline
+
+  .rad-input input
+    background: none repeat scroll 0 0 #fff !important
+    border-radius: 20px !important
+    text-align: center !important
+
+  form
+    text-align: center
+    margin: 0 20px
+
+/* Login Screen */
+
+form
+  .country-code
+    margin-top: 20px
+    font-size: 16px
+
+    div
+      color: #fff
+
+.reg-form
+  .input-group
+    padding: 1px 5px
+    background-color: #fff
+    border: 1px solid #f68c49
+    border-radius: 7px
+    margin-bottom: 10px
+    position: relative
+
+    .icon
+      position: absolute
+      top: 2px
+    i
+      font-size: 30px
+      color: #f68c49
+      margin: 0 0 0 5px
+
+      @include iphone6
+        font-size: 32px
+        margin-top: 2px
+
+      &.password
+        font-size: 30px
+
+  .country-code
+    margin-top: 20px
+    font-size: 16px
+
+    div
+      color: #fff
+
+    a
+      color: rgba(255, 255, 255, 0.85)
+
+  .input-group input
+    font-size: 22px
+    color: #555
+    padding: 5px
+    display: block
+    border: 0
+    margin-left: 40px
+    width: 80%
+
+    @include iphone6
+      padding: 8px
+
+.login-page
+  background-image: url(../../images/MobileBackgroundBlurred.png)
+  background-size: cover
+  background-position: 50% 100%
+
+  .text
+    color: #fff
+    opacity: 0.87
+    font-size: 16px
+    margin-bottom: 10px
+    font-weight: 400
+    display: block
+
+  .init-regis
+    margin: 25px 0
+
+    @include iphone6
+      margin-top: 40px
+
+  form#reset-password-form
+    .inputs
+      margin: 20px 0
+
+      @include iphone6
+        margin: 40px 0
+
+  form.reg-form
+    margin-top: 20px
+
+    @include iphone6
+      margin-top: 30px
+
+    .inputs
+      margin: 20px 0
+
+      @include iphone6
+        margin: 40px 0
+
+      input
+        padding: 12px 15px
+        background-color: #fff
+        border: 1px solid #f68c49
+        opacity: 1
+
+  .upload-photo-cont
+    padding-top: 45px
+
+  .inputs
+    margin: 60px 0
+    position: relative
+
+  .inputs-reg
+    margin: 80px 0 40px 0
+    position: relative
+
+  .inputs
+    .inputIconE
+      position: absolute
+      right: 10px
+      top: 3px
+      font-size: 20px
+      color: #ccc
+      @include iphone6
+        top: 5px
+
+    .icons i.enable
+      color: #f68c49
+
+    .inputIconE:last-child
+      position: absolute
+      top: 26px
+      border-top: 1px solid #ccc
+      padding-top: 3px
+      @include iphone6
+        top: 28px
+
+    input
+      display: block
+      margin-bottom: 10px
+      padding: 12px 15px !important
+      box-sizing: border-box
+      width: 100%
+      border-radius: 8px
+      font-size: 22px
+      opacity: 0.75
+      border: 1px solid #fff
+
+      &.input-email-phone
+        padding-right: 35px !important
+
+      @include iphone6
+        padding: 14px 15px !important
+
+      &:focus
+        border: 1px solid #f68c49
+        opacity: 1
+        color: #333
+
+    .active
+      border: 1px solid #f68c49
+      opacity: 1
+      color: #333
+
+  input:-webkit-autofill
+    background-color: #fff
+    -webkit-box-shadow: 0 0 0px 1000px white inset
+
+  h1
+    color: #fff
+    opacity: 0.87
+    font-weight: 500
+    margin: 15px 0
+    margin-bottom: 15px
+    font-size: 27px
+    line-height: 110%
+
+    @include iphone6
+      margin: 25px 0
+      font-size: 31px
+      line-height: 120%
+
+  p
+    color: #fff
+    opacity: 0.87
+    font-size: 16px
+    margin: 12px 20px
+    font-weight: 400
+
+    @include iphone6
+      margin: 15px 20px
+
+  a.forgot
+    color: #eee
+    text-decoration: underline
+
+
+
+
+
+
+
+
+
+
+
+
+
+// PAGINATION
+
+.swiper-pagination
+  z-index: 0 !important
+
+.swiper-container-horizontal > .swiper-pagination-bullets
+  bottom: 20px
+
+  .swiper-pagination-bullet
+    background-color: #fff
+    opacity: 1
+    width: 12px
+    height: 12px
+    margin: 0 7px
+
+  .swiper-pagination-bullet-active
+    background-color: #f26243
+    opacity: 1
+    width: 16px
+    height: 16px
+    margin-bottom: -2px

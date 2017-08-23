@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, user-scalable=no" />
+  <title>Tommy</title>
+
+  <link rel="stylesheet" href="lib/vendors/framework7/framework7.ios.min.css">
+  <link rel="stylesheet" href="lib/vendors/material/material-icons.css">
+  <link rel="stylesheet" href="lib/styles/tommy.css">
+  <link rel="stylesheet" href="styles/css/style.css">
+  <link rel="stylesheet" href="styles/css/chat.css">
+  <link rel="stylesheet" href="styles/css/addons.css">
+  <link rel="stylesheet" href="styles/css/actions.css">
+  <link rel="stylesheet" href="styles/css/contacts.css">
+</head>
+
+<body>
+  <div class="views toolbar-through">
+    <div class="view view-main">
+      <div class="navbar">
+        <div class="navbar-inner">
+        </div>
+      </div>
+      <div class="pages navbar-through toolbar-through">
+        <div data-page="index" class="page">
+          <div class="page-content">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    Fixes "Uncaught ReferenceError: io is not defined".
+    We need to load require.js after socket.io has been loaded.
+  -->
+  <script type="text/javascript" src="vendors/symple/socket.io.js"></script>
+  <script data-main="scripts/proxy" src="lib/vendors/require/require.js"></script>
+</body>
+</html>

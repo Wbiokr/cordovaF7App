@@ -1,0 +1,28 @@
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="#" class="link back icon-only"><i class="material-icons md-36">keyboard_arrow_left</i></a></div>
+    <div class="center sliding" id="message-title">{{t "chat.view_title" defaultValue="Message"}}</div>
+    <div class="right"><a href="#" class="link icon-only" id="open-chat-details"><span class="icon icon-more icon-more-active"></span></a></div>
+  </div>
+</div>
+<div class="pages navbar-fixed">
+    <div class="page" data-page="chat-view">
+        <div class="toolbar messagebar">
+            <div class="toolbar-inner">
+                <textarea placeholder="{{t "label.message" defaultValue="Message"}}" class="" id="message-box"></textarea><a class="link">Send</a>
+            </div>
+        </div>
+        <div class="page-content messages-content">
+            <div class="content-block centered no-margin alert-info sms-only" style="display: none">
+                <div class="content-block-inner">
+                    {{t "chat.view_sms_hint" defaultValue="This person is not a Tommy member yet. All messages will be sent via SMS."}}
+                </div>
+            </div>
+            <div id="chat-message-cont">
+                <div class="messages messages-auto-layout">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end of messages list-->

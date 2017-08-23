@@ -1,0 +1,50 @@
+<div class="pages">
+  <!-- <div class="page no-navbar no-toolbar login-page" id="registration" data-page="registration-confirm-code"> -->
+  <div class="page no-navbar toolbar-fixed toolbar-big login-page" data-page="registration-confirm-code" id="registration">
+
+    <div class="page-shadow"></div>
+    <div class="page-content">
+
+      <div class="logo-center-block">
+        <img class="login-logo" alt="Tommy" title="Tommy" src="images/LogoWhite.png">
+        <img class="login-logo-text" alt="Tommy Text" src="images/TommyTextWhite.png">
+      </div>
+
+      <form id="confirm-code-form" class="reg-form">
+        <!-- <div class="content-block inset">
+          <div id="hidewarning" class="content-block-inner notiwarning" style="display:none;">
+            <p>Please correct the following:</p>
+            <ul>
+              <li>Valid Email address is required.</li>
+              <li>Valid Mobile number is required</li>
+            </ul>
+          </div>
+        </div> -->
+        <!-- <div class="content-block-title centered-title"><span>{{t "label.first_name" defaultValue="FIRST NAME"}}</span></div> -->
+        <!-- <div class="content-block-title centered-title"><span>{{t "login.create_my_account" defaultValue="Create My Account"}}</span></div> -->
+        <h1>We sent a 4 digit code to your number</h1>
+
+        <div class="init-regis">
+          <div class="input-group">
+            <div class="icon">
+              <i class="material-icons">lock</i>
+            </div>
+            <input type="number" placeholder="{{t "label.code_number" defaultValue="Code number"}}" name="code" class="code">
+          </div>
+          <div class="country-code">
+            <a href="#">Resend</a>
+          </div>
+        </div>
+
+        <!-- <div class="get-started-btn">
+          <button type="submit">Next</button>
+        </div> -->
+      </form>
+
+    </div>
+    <div class="toolbar toolbar-bottom toolbar-bottom-button">
+      <a href="#" data-submit="#confirm-code-form" class="button button-big button-fill fixed-button">{{t "label.next" defaultValue="Next"}}</a>
+    </div>
+
+  </div>
+</div>

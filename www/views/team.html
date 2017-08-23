@@ -1,0 +1,24 @@
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <div class="left sliding"><a class="open-panel link icon-only" href="#"><i class="material-icons md-36">keyboard_arrow_left</i></a></div>
+    <div class="center sliding">{{t "team.title" defaultValue="Team"}}</div>
+    <div class="right"><a href="views/team-member-invite.html" class="link icon-only"><i class="material-icons">add</i></a></div>
+  </div>
+</div>
+<div class="pages navbar-through">
+  <div data-page="team" class="page">
+    <form data-search-list=".team-member-list" data-search-in=".item-title" class="searchbar searchbar-init">
+      <div class="searchbar-input">
+        <input type="search" placeholder="{{t "label.search" defaultValue="Search"}}"><a href="#" class="searchbar-clear"></a>
+      </div><a href="#" class="searchbar-cancel">{{t "label.cancel" defaultValue="Cancel"}}</a>
+    </form>
+    <div class="searchbar-overlay"></div>
+    <div class="page-content">
+      <div class="content-block searchbar-not-found no-data">
+        <h2>{{t "common.nothing_found" defaultValue="Nothing found"}}</h2>
+      </div>
+      <div class="list-block media-list team-member-list searchbar-found no-margin" data-template="teamMemberListTemplate">
+      </div>
+    </div>
+  </div>
+</div>

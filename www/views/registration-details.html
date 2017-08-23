@@ -1,0 +1,50 @@
+<div class="pages">
+  <!-- <div class="page no-navbar no-toolbar login-page" id="registration" data-page="registration"> -->
+  <div class="page no-navbar toolbar-fixed toolbar-big login-page" data-page="registration-details" id="registration-details">
+
+    <div class="page-shadow"></div>
+    <div class="page-content">
+
+      <div class="logo-center-block">
+        <img class="login-logo" alt="Tommy" title="Tommy" src="images/LogoWhite.png">
+        <img class="login-logo-text" alt="Tommy Text" src="images/TommyTextWhite.png">
+      </div>
+
+      <form id="registration-details-form" class="reg-form">
+        <h1>Tell Us About Yourself</h1>
+
+        <input type="hidden" name="email" class="email" value="{{url_query.email}}">
+        <input type="hidden" name="mobile" class="mobile" value="{{url_query.mobile}}">
+
+        <div class="init-regis">
+          <div class="input-group">
+            <div class="icon">
+              <i class="material-icons">person_outline</i>
+            </div>
+            <input type="text" placeholder="{{t "label.first_name" defaultValue="First Name"}}" name="first_name" class="first_name" autocomplete="off" autocorrect="off">
+          </div>
+          <div class="input-group">
+            <div class="icon">
+              <i class="material-icons">person_outline</i>
+            </div>
+            <input type="text" placeholder="{{t "label.last_name" defaultValue="Last Name"}}" name="last_name" class="last_name" autocomplete="off" autocorrect="off">
+          </div>
+          <div class="input-group">
+            <div class="icon">
+              <i class="material-icons password">vpn_key</i>
+            </div>
+            <input type="password" placeholder="{{t "label.password" defaultValue="Password"}}" name="password" class="password">
+          </div>
+        </div>
+
+        <!-- <div class="get-started-btn">
+          <button type="submit">Next</button>
+        </div> -->
+      </form>
+
+    </div>
+    <div class="toolbar toolbar-bottom toolbar-bottom-button">
+      <a href="#" data-submit="#registration-details-form" class="button button-big button-fill fixed-button">{{t "label.next" defaultValue="Next"}}</a>
+    </div>
+  </div>
+</div>

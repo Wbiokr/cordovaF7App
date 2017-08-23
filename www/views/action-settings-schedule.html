@@ -1,0 +1,159 @@
+<div class="navbar onpage">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="#" class="back link icon-only"><i class="material-icons md-36">keyboard_arrow_left</i></a></div>
+    <div class="center sliding">{{t "actions.settings_schedule_type" defaultValue="Schedule"}}</div>
+  </div>
+</div>
+<div class="pages navbar-through">
+  <div data-page="action-settings-schedule" class="page" id="action-settings-schedule">
+    <div class="page-content">
+      <form id="action-settings-schedule-form">
+        <!-- data-module="{{module}}" data-param="{{param}}" -->
+        <!-- <div class="content-block-title centered-title"><span>{{t "actions.settings_schedule_time_of_day" defaultValue="Time of Day"}}</span></div> -->
+        <div class="list-block">
+          <ul>
+            <li>
+              <a href="#" class="item-link smart-select" data-back-on-select="true" data-page-title="Sechedule Type">
+                <select name="type">
+                  <option value="time" selected>Time of Day</option>
+                  <option value="interval">Interval</option>
+                  <!-- {{#each operators}}
+                  <option value="{{this}}" {{isSelected this ../operator}}>{{sentenceCase this}}</option>
+                  {{/each}} -->
+                </select>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{t "actions.settings_schedule_type" defaultValue="Sechedule Type"}}</div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          <!-- <div class="content-block-title centered-title"><span>{{t "label.limit" defaultValue="Limit"}}</span></div>
+          <div class="list-block">
+            <ul>
+          </ul>
+        </div> -->
+            <li data-schedule-item="time">
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-input">
+                    <input type="text" name="time" placeholder="9:00 am">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li data-schedule-item="interval">
+              <a href="#" class="item-link smart-select" data-back-on-select="true" data-page-title="Hourly Interval">
+                <select name="interval">
+                  <!-- <option value="" selected disabled></option> -->
+                  <option data-minute="*/30" data-hour="*">30 minutes</option>
+                  <option data-minute="0" data-hour="*" selected>Hourly</option>
+                  <option data-minute="0" data-hour="*/2" value="2">2 hours</option>
+                  <option data-minute="0" data-hour="*/3" value="3">3 hours</option>
+                  <option data-minute="0" data-hour="*/6" value="6">6 hours</option>
+                  <option data-minute="0" data-hour="*/12">12 hours</option>
+                </select>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{t "actions.settings_schedule_hourly_interval" defaultValue="Hourly Interval"}}</div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="content-block-title centered-title"><span>{{t "actions.settings_schedule_calender_days" defaultValue="Calender Days"}}</span></div>
+        <div class="list-block">
+          <ul>
+            <li>
+              <!-- data-schedule-item="day-of-week" -->
+              <a href="#" class="item-link smart-select" data-page-title="Days of Week">
+                <select name="day_of_week" multiple>
+                  <!-- <option value="" selected disabled></option> -->
+                  <option data-day-of-week="*" data-single selected>Every Day</option>
+                  <option data-day-of-week="1">Monday</option>
+                  <option data-day-of-week="2">Tuesday</option>
+                  <option data-day-of-week="3">Wednesday</option>
+                  <option data-day-of-week="4">Thursday</option>
+                  <option data-day-of-week="5">Friday</option>
+                  <option data-day-of-week="6">Saturday</option>
+                  <option data-day-of-week="7">Sunday</option>
+                  <!-- <option>Days of Week</option>
+                  <option>Days of Month</option> -->
+                  <!-- {{#each operators}} -->
+                  <!-- <option value="{{this}}" {{isSelected this ../operator}}>{{sentenceCase this}}</option> -->
+                  <!-- {{/each}} -->
+                </select>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{t "actions.settings_schedule_days_of_week" defaultValue="Days of Week"}}</div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <!-- data-schedule-item="day-of-month" -->
+              <a href="#" class="item-link smart-select" data-page-title="Days of Month">
+                <select name="day_of_month" multiple>
+                  <!-- <option value="" selected disabled></option> -->
+                  <option data-day-of-month="*" data-single selected>Every Day</option>
+                  <option data-day-of-month="1">1st</option>
+                  <option data-day-of-month="2">2nd</option>
+                  <option data-day-of-month="3">3rd</option>
+                  <option data-day-of-month="4">4th</option>
+                  <option data-day-of-month="5">5th</option>
+                  <option data-day-of-month="6">6th</option>
+                  <option data-day-of-month="7">7th</option>
+                  <option data-day-of-month="8">8th</option>
+                  <option data-day-of-month="9">9th</option>
+                  <option data-day-of-month="10">10th</option>
+                  <option data-day-of-month="11">11th</option>
+                  <option data-day-of-month="12">12th</option>
+                  <option data-day-of-month="13">13th</option>
+                  <option data-day-of-month="14">14th</option>
+                  <option data-day-of-month="15">15th</option>
+                  <option data-day-of-month="16">16th</option>
+                  <option data-day-of-month="17">17th</option>
+                  <option data-day-of-month="18">18th</option>
+                  <option data-day-of-month="19">19th</option>
+                  <option data-day-of-month="20">20th</option>
+                  <option data-day-of-month="21">21st</option>
+                  <option data-day-of-month="22">22nd</option>
+                  <option data-day-of-month="23">23rd</option>
+                  <option data-day-of-month="24">24th</option>
+                  <option data-day-of-month="25">25th</option>
+                  <option data-day-of-month="26">26th</option>
+                  <option data-day-of-month="27">27th</option>
+                  <option data-day-of-month="28">28th</option>
+                  <option data-day-of-month="29">29th</option>
+                  <option data-day-of-month="30">30th</option>
+                  <option data-day-of-month="31">31st</option>
+                  <!-- <option>Last Day of the Month</option> -->
+                </select>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{t "actions.settings_schedule_days_of_month" defaultValue="Days of Month"}}</div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="content-block-title centered-title"><span>{{t "label.limit" defaultValue="Limit"}}</span></div>
+        <div class="list-block">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-input">
+                    <input type="text" name="limit" placeholder="9:00 AM">
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div> -->
+      </form>
+    </div>
+  </div>
+</div>
